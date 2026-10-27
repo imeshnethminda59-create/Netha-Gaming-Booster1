@@ -1,1931 +1,277 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">  
-<meta name="theme-color" content="#070b12">  
-<title>NETHA BOOST ULTRA</title>  
-
-    <style>  
-:root {  
-  --bg: #070b12;  
-  --panel: rgba(16, 24, 36, .92);  
-  --green: #00ff9c;  
-  --cyan: #00d9ff;  
-  --purple: #a855f7;  
-  --text: #eaf5ff;  
-  --muted: #8da2b8;  
-  --border: rgba(0,255,156,.22);  
-}  
-  
-* {  
-  box-sizing: border-box;  
-  -webkit-tap-highlight-color: transparent;  
-}  
-  
-body {
-  background: #070b12;
-  color: #eafcff;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  padding: 12px;
-  background-image:
-    radial-gradient(ellipse at top, #10313b 0%, transparent 55%);
-  font-size: 16px;
-}
-
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}  
-  
-.hero {  
-  position: relative;  
-  overflow: hidden;  
-  text-align: center;  
-  padding: 27px 16px;  
-  border: 1px solid var(--border);  
-  border-radius: 22px;  
-  background: linear-gradient(135deg, #10251f, #101326 65%, #111b29);  
-  box-shadow: 0 0 28px rgba(0,255,156,.08);  
-  margin-bottom: 20px;  
-}  
-  
-.hero::before {  
-  content: "";  
-  position: absolute;  
-  width: 200px;  
-  height: 200px;  
-  border-radius: 50%;  
-  background: rgba(0,255,156,.08);  
-  filter: blur(40px);  
-  right: -70px;  
-  top: -90px;  
-}  
-  
-.logo {  
-  color: var(--green);  
-  font-size: clamp(25px, 6vw, 39px);  
-  font-weight: 900;  
-  letter-spacing: 2px;  
-  text-shadow: 0 0 18px rgba(0,255,156,.5);  
-}  
-  
-.subtitle {  
-  color: var(--muted);  
-  font-size: 12px;  
-  letter-spacing: 3px;  
-  margin-top: 9px;  
-}  
-  
-.status {  
-  display: inline-flex;  
-  align-items: center;  
-  gap: 7px;  
-  margin-top: 17px;  
-  padding: 7px 12px;  
-  border-radius: 20px;  
-  border: 1px solid rgba(0,255,156,.3);  
-  background: rgba(0,255,156,.07);  
-  color: var(--green);  
-  font-size: 11px;  
-  font-weight: bold;  
-}  
-  
-.dot {  
-  width: 7px;  
-  height: 7px;  
-  background: var(--green);  
-  border-radius: 50%;  
-  box-shadow: 0 0 10px var(--green);  
-}  
-  
-.section {  
-  margin-top: 18px;  
-  padding: 17px;  
-  border: 1px solid rgba(130,160,190,.17);  
-  border-radius: 20px;  
-  background: var(--panel);  
-  box-shadow: 0 12px 35px rgba(0,0,0,.16);  
-}  
-  
-.section-heading {  
-  display: flex;  
-  align-items: center;  
-  gap: 11px;  
-  margin: 0 0 17px;  
-  font-size: 17px;  
-  font-weight: 800;  
-}  
-  
-.heading-icon {  
-  display: grid;  
-  place-items: center;  
-  width: 39px;  
-  height: 39px;  
-  flex-shrink: 0;  
-  border-radius: 12px;  
-  color: var(--green);  
-  background: rgba(0,255,156,.09);  
-  border: 1px solid rgba(0,255,156,.2);  
-  font-size: 19px;  
-}  
-  
-.heading-caption {  
-  display: block;  
-  margin-top: 4px;  
-  color: var(--muted);  
-  font-size: 10px;  
-  font-weight: normal;  
-  letter-spacing: 1px;  
-}  
-  
-#deviceInfoCard {  
-  border-color: rgba(0,217,255,.23);  
-  background:  
-    radial-gradient(ellipse at 100% 0%, rgba(0,217,255,.09), transparent 35%),  
-    linear-gradient(145deg, rgba(15,27,39,.97), rgba(11,15,27,.97));  
-}  
-  
-#deviceInfoCard .heading-icon {  
-  color: var(--cyan);  
-  background: rgba(0,217,255,.08);  
-  border-color: rgba(0,217,255,.25);  
-}  
-  
-.device-top {  
-  display: flex;  
-  justify-content: space-between;  
-  align-items: center;  
-  gap: 12px;  
-  padding: 14px;  
-  margin-bottom: 14px;  
-  border-radius: 15px;  
-  background: linear-gradient(110deg, rgba(0,255,156,.08), rgba(0,217,255,.07));  
-  border: 1px solid rgba(0,217,255,.18);  
-}  
-  
-.device-top small {  
-  color: var(--muted);  
-  font-size: 10px;  
-  letter-spacing: 1.5px;  
-}  
-  
-.device-top h3 {  
-  margin: 6px 0 0;  
-  font-size: 18px;  
-  overflow-wrap: anywhere;  
-}  
-  
-.device-chip {  
-  flex-shrink: 0;  
-  border: 1px solid rgba(0,255,156,.3);  
-  border-radius: 10px;  
-  padding: 8px 9px;  
-  color: var(--green);  
-  background: rgba(0,255,156,.07);  
-  font-size: 10px;  
-  font-weight: bold;  
-}  
-  
-.device-grid {  
-  display: grid;  
-  grid-template-columns: repeat(2, minmax(0, 1fr));  
-  gap: 10px;  
-}  
-  
-.device-item {  
-  min-width: 0;  
-  padding: 12px;  
-  border: 1px solid rgba(150,180,210,.13);  
-  background: rgba(255,255,255,.025);  
-  border-radius: 13px;  
-}  
-  
-.device-label {  
-  display: flex;  
-  align-items: center;  
-  gap: 7px;  
-  color: var(--muted);  
-  font-size: 10px;  
-  text-transform: uppercase;  
-  letter-spacing: .8px;  
-}  
-  
-.device-value {  
-  color: var(--text);  
-  font-size: 14px;  
-  font-weight: bold;  
-  margin-top: 9px;  
-  overflow-wrap: anywhere;  
-}  
-  
-.device-item:nth-child(3n+1) .device-value {  
-  color: var(--green);  
-}  
-  
-.device-item:nth-child(3n+2) .device-value {  
-  color: var(--cyan);  
-}  
-  
-.device-item:nth-child(3n) .device-value {  
-  color: #d7b5ff;  
-}  
-  
-.device-footer {  
-  display: flex;  
-  align-items: center;  
-  justify-content: space-between;  
-  gap: 10px;  
-  margin-top: 14px;  
-  flex-wrap: wrap;  
-}  
-  
-.device-note {  
-  color: var(--muted);  
-  font-size: 10px;  
-  line-height: 1.6;  
-  flex: 1;  
-  min-width: 150px;  
-}  
-  
-button, select {  
-  font: inherit;  
-}  
-  
-.btn {  
-  padding: 11px 14px;  
-  border: 1px solid rgba(0,255,156,.35);  
-  border-radius: 11px;  
-  color: var(--green);  
-  background: rgba(0,255,156,.08);  
-  font-size: 12px;  
-  font-weight: bold;  
-  cursor: pointer;  
-  transition: .2s;  
-}  
-  
-.btn:active {  
-  transform: scale(.97);  
-}  
-  
-.btn.primary {  
-  color: #04120d;  
-  background: linear-gradient(100deg, var(--green), #7affcb);  
-  border: none;  
-}  
-  
-.btn.cyan {  
-  color: var(--cyan);  
-  border-color: rgba(0,217,255,.35);  
-  background: rgba(0,217,255,.08);  
-}  
-  
-.field {  
-  margin-bottom: 15px;  
-}  
-  
-.field label {  
-  display: block;  
-  color: var(--muted);  
-  font-size: 12px;  
-  margin-bottom: 8px;  
-}  
-  
-select {  
-  width: 100%;  
-  padding: 12px;  
-  color: var(--text);  
-  background: #101a27;  
-  border: 1px solid rgba(0,255,156,.23);  
-  border-radius: 11px;  
-  outline: none;  
-}  
-  
-select option {  
-  background: #101a27;  
-  color: white;  
-}  
-  
-.result-grid {  
-  display: grid;  
-  grid-template-columns: repeat(2, minmax(0,1fr));  
-  gap: 10px;  
-  margin-top: 15px;  
-}  
-  
-/* Sensitivity results appear only after Generate settings is pressed */  
-#sensitivityResults,  
-#sensitivityNote {  
-  display: none;  
-}  
-  
-.result {  
-  border: 1px solid var(--border);  
-  border-radius: 13px;  
-  padding: 14px;  
-  background: rgba(0,255,156,.035);  
-}  
-  
-.result small {  
-  color: var(--muted);  
-  font-size: 10px;  
-  display: block;  
-}  
-  
-.result strong {  
-  display: block;  
-  color: var(--green);  
-  font-size: 23px;  
-  margin-top: 7px;  
-}  
-  
-.note {  
-  margin-top: 13px;  
-  padding: 12px;  
-  color: #b9c9d9;  
-  background: rgba(255,255,255,.035);  
-  border-left: 3px solid var(--cyan);  
-  border-radius: 7px;  
-  font-size: 11px;  
-  line-height: 1.7;  
-}  
-  
-.calibration-result {  
-  margin-top: 12px;  
-  padding: 14px;  
-  border-radius: 12px;  
-  border: 1px solid rgba(168,85,247,.25);  
-  background: rgba(168,85,247,.06);  
-  font-size: 12px;  
-  line-height: 1.8;  
-  display: none;  
-}  
-  
-.fps-panel {  
-  text-align: center;  
-}  
-  
-.fps-number {  
-  font-size: 45px;  
-  color: var(--cyan);  
-  font-weight: 900;  
-  text-shadow: 0 0 18px rgba(0,217,255,.25);  
-  margin: 12px 0;  
-}  
-  
-.fps-stage {  
-  position: relative;  
-  overflow: hidden;  
-  height: 100px;  
-  margin: 14px 0;  
-  border-radius: 13px;  
-  background: #080e17;  
-  border: 1px solid rgba(0,217,255,.18);  
-}  
-  
-.fps-ball {  
-  position: absolute;  
-  top: 37px;  
-  left: 0;  
-  width: 25px;  
-  height: 25px;  
-  border-radius: 50%;  
-  background: var(--green);  
-  box-shadow: 0 0 18px var(--green);  
-  display: none;  
-}  
-  
-.footer {  
-  text-align: center;  
-  color: #60748a;  
-  font-size: 10px;  
-  margin-top: 23px;  
-  line-height: 1.8;  
-}  
-  
-@media (min-width: 620px) {  
-  .device-grid {  
-    grid-template-columns: repeat(3, minmax(0,1fr));  
-  }  
-  
-  .section {  
-    padding: 21px;  
-  }  
-  
-  .result-grid {  
-    grid-template-columns: repeat(3, minmax(0,1fr));  
-  }  
-}  
-  
-@media (max-width: 360px) {  
-  .container {  
-    width: calc(100% - 16px);  
-  }  
-  
-  .section {  
-    padding: 12px;  
-  }  
-  
-  .device-grid {  
-    gap: 7px;  
-  }  
-  
-  .device-item {  
-    padding: 9px;  
-  }  
-  
-  .device-value {  
-    font-size: 12px;  
-  }  
-  
-  .device-top h3 {  
-    font-size: 15px;  
-  }  
-}  
-/* Mobile Responsive Fix */
-@media screen and (max-width: 600px) {
-  body {
-    padding: 12px;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .header {
-    padding: 24px 12px;
-  }
-
-  .logo {
-    font-size: 34px;
-    letter-spacing: 2px;
-  }
-
-  .subtitle {
-    font-size: 11px;
-    letter-spacing: 2px;
-  }
-
-  .section-title {
-    font-size: 16px;
-  }
-
-  .card {
-    padding: 18px;
-  }
-
-  .card h3 {
-    font-size: 18px;
-  }
-
-  .muted {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  .btn {
-    min-height: 50px;
-    font-size: 15px;
-    padding: 15px 12px;
-  }
-
-  .stat {
-    padding: 16px 8px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-
-  .stat-value {
-    font-size: 17px;
-  }
-}
-/* EXTRA LARGE MOBILE DISPLAY */
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 20px;
-  }
-
-  body {
-    padding: 8px;
-    zoom: 1.15;
-  }
-
-  .container {
-    width: 100%;
-    max-width: none;
-  }
-
-  .logo {
-    font-size: 38px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-
-  .status {
-    font-size: 13px;
-    padding: 9px 14px;
-  }
-
-  .section-title {
-    font-size: 19px;
-    margin: 28px 0 16px;
-  }
-
-  .card {
-    padding: 22px 16px;
-    margin-bottom: 16px;
-  }
-
-  .card h3 {
-    font-size: 20px;
-  }
-
-  .muted {
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  .btn {
-    min-height: 58px;
-    font-size: 17px;
-    padding: 17px 12px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-  }
-
-  .stat-value {
-    font-size: 19px;
-  }
-
-  .game-title {
-    font-size: 25px;
-  }
-
-  .details {
-    font-size: 15px;
-  }
-}
-/* NETHA BOOST - MOBILE TEXT & BUTTON SIZE FIX */
-@media screen and (max-width: 600px) {
-
-  .logo {
-    font-size: 38px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-
-  .status {
-    font-size: 13px;
-    padding: 9px 14px;
-  }
-
-  .section-title {
-    font-size: 19px;
-    margin: 28px 0 16px;
-  }
-
-  .card {
-    padding: 22px 18px;
-    border-radius: 16px;
-    margin-bottom: 16px;
-  }
-
-  .card h3 {
-    font-size: 20px;
-  }
-
-  .muted {
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  .btn {
-    width: 100%;
-    min-height: 58px;
-    padding: 17px 12px;
-    font-size: 17px;
-    letter-spacing: 1px;
-  }
-
-  .game-title {
-    font-size: 26px;
-  }
-
-  .game-icon {
-    font-size: 44px;
-  }
-
-  .stat {
-    padding: 20px 10px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-  }
-
-  .stat-value {
-    font-size: 19px;
-  }
-
-  .details {
-    font-size: 15px;
-    line-height: 1.9;
-    padding: 15px;
-  }
-
-  .footer {
-    font-size: 13px;
-  }
-}
-/* SENSITIVITY GENERATOR ANIMATION */
-.generate-btn {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.generate-btn:disabled {
-  opacity: .85;
-  cursor: wait;
-}
-
-.generate-btn .btn-text {
-  position: relative;
-  z-index: 2;
-}
-
-.generate-btn.loading {
-  box-shadow: 0 0 18px rgba(0,255,156,.25);
-  animation: neonPulse .8s infinite alternate;
-}
-
-@keyframes neonPulse {
-  from { box-shadow: 0 0 5px rgba(0,255,156,.2); }
-  to { box-shadow: 0 0 22px rgba(0,255,156,.65); }
-}
-
-#generateAnimation {
-  display: none;
-  margin-top: 16px;
-  padding: 16px;
-  background: rgba(0,255,156,.035);
-  border: 1px solid rgba(0,255,156,.22);
-  border-radius: 13px;
-  text-align: center;
-}
-
-#generateAnimation.active {
-  display: block;
-  animation: panelReveal .35s ease-out;
-}
-
-@keyframes panelReveal {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.generate-status {
-  color: var(--green);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  animation: statusBlink .7s infinite alternate;
-}
-
-@keyframes statusBlink {
-  from { opacity: .55; }
-  to { opacity: 1; }
-}
-
-.generate-track {
-  width: 100%;
-  height: 8px;
-  margin-top: 15px;
-  background: #15232a;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.generate-progress {
-  width: 0%;
-  height: 100%;
-  border-radius: 20px;
-  background: linear-gradient(90deg, var(--green), var(--cyan));
-  box-shadow: 0 0 12px var(--green);
-  transition: width .12s linear;
-}
-
-.generate-percent {
-  display: block;
-  margin-top: 9px;
-  color: var(--cyan);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-#sensitivityResults .result {
-  opacity: 0;
-  transform: translateY(12px) scale(.96);
-}
-
-#sensitivityResults .result.show-result {
-  animation: resultReveal .4s ease-out forwards;
-}
-
-@keyframes resultReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .generate-btn.loading,
-  .generate-status {
-    animation: none;
-  }
-
-  .generate-progress {
-    transition: none;
-  }
-}
-/* COMPACT MOBILE LAYOUT */
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    padding: 8px;
-    zoom: 1;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .hero {
-    padding: 18px 12px;
-    margin-bottom: 14px;
-    border-radius: 16px;
-  }
-
-  .logo {
-    font-size: 27px;
-    letter-spacing: 1px;
-  }
-
-  .subtitle {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-  }
-
-  .status {
-    font-size: 10px;
-    padding: 6px 9px;
-    margin-top: 12px;
-  }
-
-  .section {
-    margin-top: 12px;
-    padding: 13px;
-    border-radius: 15px;
-  }
-
-  .section-heading {
-    gap: 8px;
-    margin-bottom: 13px;
-    font-size: 14px;
-  }
-
-  .heading-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    border-radius: 9px;
-  }
-
-  .heading-caption {
-    font-size: 9px;
-    letter-spacing: .5px;
-  }
-
-  .device-top {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .device-top h3 {
-    font-size: 15px;
-  }
-
-  .device-chip {
-    font-size: 9px;
-    padding: 6px;
-  }
-
-  .device-grid {
-    gap: 7px;
-  }
-
-  .device-item {
-    padding: 9px;
-    border-radius: 10px;
-  }
-
-  .device-label {
-    font-size: 9px;
-    gap: 4px;
-    letter-spacing: .3px;
-  }
-
-  .device-value {
-    font-size: 12px;
-    margin-top: 6px;
-  }
-
-  .device-note {
-    font-size: 9px;
-  }
-
-  .field {
-    margin-bottom: 11px;
-  }
-
-  .field label {
-    font-size: 11px;
-    margin-bottom: 6px;
-  }
-
-  select {
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 9px;
-  }
-
-  .btn {
-    min-height: 40px;
-    padding: 10px;
-    font-size: 12px;
-    letter-spacing: 0;
-    border-radius: 9px;
-  }
-
-  .result-grid {
-    gap: 7px;
-    margin-top: 11px;
-  }
-
-  .result {
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .result small {
-    font-size: 9px;
-  }
-
-  .result strong {
-    font-size: 19px;
-    margin-top: 5px;
-  }
-
-  .note {
-    margin-top: 10px;
-    padding: 9px;
-    font-size: 10px;
-    line-height: 1.6;
-  }
-
-  #generateAnimation {
-    padding: 12px;
-    margin-top: 11px;
-  }
-
-  .generate-status,
-  .generate-percent {
-    font-size: 10px;
-  }
-
-  .calibration-result {
-    padding: 10px;
-    font-size: 11px;
-  }
-
-  .fps-number {
-    font-size: 36px;
-    margin: 8px 0;
-  }
-
-  .fps-stage {
-    height: 75px;
-    margin: 10px 0;
-  }
-
-  .fps-ball {
-    top: 25px;
-  }
-
-  .footer {
-    font-size: 9px;
-    margin-top: 16px;
-  }
-}
-
-.hacker-animation {
-  position: relative;
-  height: 230px;
-  overflow: hidden;
-  isolation: isolate;
-  border: 1px solid #00ff9c55;
-  border-radius: 16px;
-  background: radial-gradient(ellipse, #073d2b 0%, #06140f 45%, #050911 100%);
-  box-shadow: inset 0 0 30px #00ff9c18, 0 0 18px #00ff9c18;
-}
-
-.matrix-rain {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: space-around;
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.matrix-rain span {
-  color: #00ff9c;
-  font: bold 12px/19px monospace;
-  text-align: center;
-  opacity: .45;
-  text-shadow: 0 0 8px #00ff9c;
-  animation: matrixFall 3s linear infinite;
-}
-
-.matrix-rain span:nth-child(2) { animation-delay: -1.2s; }
-.matrix-rain span:nth-child(3) { animation-delay: -.5s; }
-.matrix-rain span:nth-child(4) { animation-delay: -2s; }
-.matrix-rain span:nth-child(5) { animation-delay: -1.7s; }
-
-@keyframes matrixFall {
-  from { transform: translateY(-130px); }
-  to { transform: translateY(240px); }
-}
-
-.hacker {
-  position: absolute;
-  z-index: 2;
-  width: 160px;
-  height: 170px;
-  left: 50%;
-  top: 8px;
-  transform: translateX(-50%);
-  animation: hackerFloat 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px #00ff9c55);
-}
-
-@keyframes hackerFloat {
-  0%, 100% { margin-top: 3px; }
-  50% { margin-top: -5px; }
-}
-
-.hood {
-  position: absolute;
-  top: 8px;
-  left: 29px;
-  width: 102px;
-  height: 103px;
-  border: 3px solid #00ff9c;
-  border-bottom: 0;
-  border-radius: 55% 55% 25% 25%;
-  background: linear-gradient(135deg, #173e30, #030b09 75%);
-  box-shadow: inset 0 0 22px #00ff9c35, 0 0 13px #00ff9c65;
-}
-
-.face {
-  position: absolute;
-  top: 43px;
-  left: 52px;
-  width: 57px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: #020706;
-  border: 1px solid #087e57;
-  border-radius: 8px 8px 18px 18px;
-}
-
-.face i {
-  display: block;
-  width: 15px;
-  height: 6px;
-  background: #00ff9c;
-  border-radius: 50%;
-  box-shadow: 0 0 7px #00ff9c, 0 0 17px #00ff9c;
-  animation: eyeGlow 1.5s ease-in-out infinite alternate;
-}
-
-.face i:nth-child(2) {
-  animation-delay: .5s;
-}
-
-@keyframes eyeGlow {
-  from { opacity: .55; box-shadow: 0 0 4px #00ff9c; }
-  to { opacity: 1; box-shadow: 0 0 9px #00ff9c, 0 0 22px #00ff9c; }
-}
-
-.body {
-  position: absolute;
-  top: 91px;
-  left: 18px;
-  width: 124px;
-  height: 69px;
-  border: 2px solid #00ff9c;
-  border-bottom: 0;
-  border-radius: 55px 55px 0 0;
-  background: linear-gradient(90deg, #07140f, #164a35, #07140f);
-  box-shadow: inset 0 0 20px #00ff9c20;
-}
-
-.laptop {
-  position: absolute;
-  top: 122px;
-  left: 26px;
-  width: 108px;
-  height: 42px;
-  padding: 4px 6px;
-  box-sizing: border-box;
-  border: 2px solid #00d9ff;
-  border-radius: 5px;
-  background: #030b12;
-  box-shadow: 0 0 12px #00d9ff70;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3px;
-}
-
-.laptop::after {
-  content: "";
-  position: absolute;
-  height: 4px;
-  left: -7px;
-  right: -7px;
-  bottom: -7px;
-  border-radius: 5px;
-  background: #00d9ff;
-  box-shadow: 0 0 8px #00d9ff;
-}
-
-.code-line {
-  color: #00ff9c;
-  font: bold 7px monospace;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: codeBlink 1.2s steps(2) infinite;
-}
-
-.code-line:nth-child(2) { animation-delay: .3s; }
-.code-line:nth-child(3) { animation-delay: .6s; }
-
-@keyframes codeBlink {
-  50% { opacity: .35; }
-}
-
-.neon-ring {
-  position: absolute;
-  z-index: 1;
-  width: 190px;
-  height: 45px;
-  left: 50%;
-  bottom: 23px;
-  transform: translateX(-50%);
-  border: 1px solid #00ff9c80;
-  border-radius: 50%;
-  box-shadow: 0 0 12px #00ff9c45, inset 0 0 12px #00ff9c25;
-  animation: ringPulse 2s ease-in-out infinite;
-}
-
-@keyframes ringPulse {
-  50% { opacity: .35; transform: translateX(-50%) scale(1.08); }
-}
-
-.hacker-caption {
-  position: absolute;
-  z-index: 3;
-  bottom: 8px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #00ff9c;
-  font: bold 9px monospace;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px #00ff9c;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .matrix-rain span,
-  .hacker,
-  .face i,
-  .code-line,
-  .neon-ring {
-    animation: none;
-  }
-}
-/* NETHA BOOST ULTRA - Bottom to Top Color Flow */
-
-body {
-  position: relative;
-  isolation: isolate;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to top,
-    rgba(255, 0, 35, 0.24) 0%,
-    rgba(255, 0, 35, 0.16) 25%,
-    rgba(255, 0, 35, 0.08) 50%,
-    rgba(255, 0, 35, 0.02) 75%,
-    transparent 100%
-  );
-
-  background-size: 100% 300%;
-  background-position: 50% 100%;
-
-  animation: nethaRedFlow 8s ease-in-out infinite alternate;
-}
-
-@keyframes nethaRedFlow {
-  0% {
-    background-position: 50% 100%;
-    opacity: 0.15;
-  }
-
-  100% {
-    background-position: 50% 0%;
-    opacity: 1;
-  }
-}
-</style>  </head>  <body>  
-<div class="container">    <header class="hero">  
-    <div class="hacker-animation">
-  <div class="matrix-rain">
-    <span>0101<br>1010<br>1101<br>0010</span>
-    <span>1010<br>0011<br>1100<br>1011</span>
-    <span>1101<br>0100<br>1010<br>0110</span>
-    <span>0011<br>1010<br>0101<br>1100</span>
-    <span>1011<br>1100<br>0010<br>1010</span>
-  </div>
-
-  <div class="hacker">
-    <div class="hood"></div>
-    <div class="face">
-      <i></i><i></i>
-    </div>
-    <div class="body"></div>
-    <div class="laptop">
-      <span class="code-line">> INITIALIZING...</span>
-      <span class="code-line">> SYSTEM ONLINE</span>
-      <span class="code-line">> NETHA BOOST</span>
-    </div>
-  </div>
-
-  <div class="neon-ring"></div>
-  <div class="hacker-caption">SYSTEM ONLINE // NETHA</div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09060c">
+<title>NETHA BOOST ULTRA</title>
+<style>
+:root{color-scheme:dark;--bg:#07090d;--panel:#0d1118;--panel2:#111722;--red:#ff304f;--pink:#ff718b;--text:#f4f6fb;--muted:#8b96a8;--line:#29313d;--lime:#b6ff62}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;padding:14px;background:radial-gradient(ellipse at 50% -10%,#5c1024 0,transparent 42%),radial-gradient(circle at 0 38%,#18203255,transparent 30%),#07090d;color:var(--text);font:14px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.14;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
+button,select{font:inherit}.container{max-width:980px;margin:0 auto}
+.hero{position:relative;padding:20px 15px 24px;text-align:center;border:1px solid #ff304f55;border-radius:25px;background:linear-gradient(135deg,#18111a,#0b0f17 52%,#17101a);box-shadow:0 20px 55px #0008,inset 0 1px #ffffff0b;margin-bottom:18px;overflow:hidden}
+.hero:before{content:"";position:absolute;width:230px;height:230px;top:-155px;left:calc(50% - 115px);border-radius:50%;border:1px solid #ff304f66;box-shadow:0 0 0 20px #ff304f08,0 0 0 42px #ff304f06}
+.hero:after{content:"SYSTEM ONLINE  /  NBU-01";position:absolute;top:12px;right:13px;color:#ff8297;font:700 8px monospace;letter-spacing:1.4px;opacity:.8}
+.hacker-animation{height:205px;max-width:520px;margin:9px auto 17px;position:relative;overflow:hidden;border:1px solid #ff304f55;border-radius:17px;background:radial-gradient(ellipse at 50% 60%,#3a1020,#10121a 55%,#080a10);isolation:isolate;box-shadow:inset 0 0 30px #0009,0 0 28px #ff304f0c}
+.hacker-animation:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 49%,#ff304f10 50%,transparent 51%);background-size:100% 5px;pointer-events:none;z-index:3}
+.matrix-rain{position:absolute;inset:0;display:flex;justify-content:space-around;overflow:hidden;pointer-events:none}.matrix-rain span{color:var(--red);font:bold 12px/19px monospace;text-align:center;opacity:.55;text-shadow:0 0 8px var(--red);animation:fall 3s linear infinite}.matrix-rain span:nth-child(2){animation-delay:-1.2s}.matrix-rain span:nth-child(3){animation-delay:-.5s}.matrix-rain span:nth-child(4){animation-delay:-2s}.matrix-rain span:nth-child(5){animation-delay:-1.7s}
+@keyframes fall{to{transform:translateY(220px)}}.hacker{position:absolute;z-index:2;width:160px;height:170px;left:50%;top:4px;transform:translateX(-50%);animation:float 2.5s ease-in-out infinite;filter:drop-shadow(0 0 15px #ff244c66)}.hood{position:absolute;top:8px;left:29px;width:102px;height:103px;border:3px solid var(--red);border-bottom:0;border-radius:55% 55% 25% 25%;background:linear-gradient(135deg,#4a1828,#03070b 75%);box-shadow:inset 0 0 22px #ff244c35}.face{position:absolute;top:43px;left:52px;width:57px;height:42px;display:flex;align-items:center;justify-content:space-evenly;background:#080207;border:1px solid #a71939;border-radius:8px 8px 18px 18px}.face i{width:15px;height:6px;background:var(--red);border-radius:50%;box-shadow:0 0 12px var(--red);animation:eye 1.5s infinite alternate}.face i:nth-child(2){animation-delay:.5s}@keyframes eye{to{opacity:.5}}.hacker-body{position:absolute;top:91px;left:18px;width:124px;height:69px;border:2px solid var(--red);border-bottom:0;border-radius:55px 55px 0 0;background:linear-gradient(90deg,#10070c,#481329,#10070c)}.laptop{position:absolute;top:122px;left:26px;width:108px;height:42px;padding:4px 6px;border:2px solid var(--pink);border-radius:5px;background:#08070c;box-shadow:0 0 12px #ff244c70;display:flex;flex-direction:column;justify-content:center;gap:3px}.laptop:after{content:"";position:absolute;height:4px;left:-7px;right:-7px;bottom:-7px;background:var(--red)}.code-line{color:var(--pink);font:bold 7px monospace;white-space:nowrap;animation:eye 1.2s steps(2) infinite}.neon-ring{position:absolute;bottom:20px;left:calc(50% - 95px);width:190px;height:40px;border:1px solid #ff244c80;border-radius:50%;box-shadow:0 0 12px #ff244c45;animation:ring 2s infinite}@keyframes ring{50%{opacity:.35;transform:scale(1.08)}}.hacker-caption{position:absolute;bottom:7px;width:100%;color:var(--pink);font:bold 9px monospace;letter-spacing:2.5px}
+.logo{position:relative;color:#fff;font-size:clamp(28px,7vw,46px);font-weight:950;letter-spacing:1.5px;line-height:1.1;text-shadow:0 0 20px #ff304f55}.logo:after{content:"ULTRA";display:block;margin:7px auto 0;width:max-content;padding:3px 12px;border:1px solid #ff304f77;border-radius:5px;color:var(--red);font:800 10px monospace;letter-spacing:5px;text-shadow:none;background:#ff304f0b}.subtitle{color:#9ca7b8;font-size:9px;letter-spacing:2.2px;margin-top:12px}.status{display:inline-flex;align-items:center;gap:8px;margin-top:15px;padding:8px 13px;border-radius:7px;border:1px solid #b6ff6240;background:#b6ff620a;color:var(--lime);font:800 9px monospace;letter-spacing:1.2px}.dot{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 10px var(--lime);animation:dotPulse 1.3s infinite alternate}@keyframes dotPulse{to{opacity:.4}}
+.section{position:relative;margin-top:16px;padding:17px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#111722f2,#0b0f16f5);box-shadow:0 12px 32px #0005,inset 0 1px #ffffff06;overflow:hidden}.section:before{content:"";position:absolute;top:0;left:17px;right:17px;height:1px;background:linear-gradient(90deg,transparent,#ff304f66,transparent)}.section-heading{display:flex;align-items:center;gap:11px;margin:0 0 17px;font-size:14px;font-weight:850;letter-spacing:.35px}.heading-icon{display:grid;place-items:center;width:39px;height:39px;flex-shrink:0;border-radius:12px;color:#fff;background:linear-gradient(145deg,#ff304f,#a20e31);box-shadow:0 5px 16px #ff304f22;font-size:18px}.heading-caption{display:block;margin-top:4px;color:#7f8b9d;font:700 8px monospace;letter-spacing:1.4px}
+#deviceInfoCard{background:radial-gradient(ellipse at 100% 0,#ff304f12,transparent 35%),linear-gradient(145deg,#121823,#0b0f16)}.device-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px;margin-bottom:13px;border-radius:14px;background:linear-gradient(100deg,#ff304f13,#ffffff03);border:1px solid #ff304f35}.device-top small{color:#8b96a8;font:700 9px monospace;letter-spacing:1.3px}.device-top h3{margin:5px 0 0;font-size:17px;overflow-wrap:anywhere}.device-chip{flex-shrink:0;border:1px solid #ff304f55;border-radius:8px;padding:8px 10px;color:#ff8297;background:#ff304f10;font:800 9px monospace;letter-spacing:.5px}.device-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.device-item{min-width:0;padding:12px;border:1px solid #ffffff0d;background:linear-gradient(145deg,#ffffff07,#ffffff02);border-radius:12px;transition:border-color .2s,transform .2s}.device-item:hover{border-color:#ff304f55;transform:translateY(-2px)}.device-label{color:#8793a5;font:700 9px monospace;text-transform:uppercase;letter-spacing:.7px}.device-value{color:#ff8297;font-size:12px;font-weight:800;margin-top:8px;overflow-wrap:anywhere}.device-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;flex-wrap:wrap}.device-note{color:#8793a5;font-size:10px;line-height:1.7;flex:1;min-width:145px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 14px;border:1px solid #ff304f55;border-radius:10px;color:#ff91a4;background:#ff304f0d;font-size:10px;font-weight:900;letter-spacing:.8px;cursor:pointer;transition:transform .18s,box-shadow .18s,border-color .18s;touch-action:manipulation}.btn:active{transform:scale(.975);box-shadow:0 0 18px #ff304f30}.btn:hover{border-color:#ff718b;box-shadow:0 0 18px #ff304f15}.btn:focus-visible,select:focus-visible{outline:2px solid var(--pink);outline-offset:3px}.btn.primary{width:100%;color:white;background:linear-gradient(105deg,#e91d43,#ff4765 60%,#e91d43);background-size:200% 100%;border:1px solid #ff8da0;box-shadow:0 7px 20px #ff304f25;animation:buttonShine 5s linear infinite}.btn.primary:hover{box-shadow:0 8px 26px #ff304f40}@keyframes buttonShine{to{background-position:200% 0}}.btn.cyan{color:#dbe4f4;border-color:#65738a66;background:#7d91b20b}
+.field{margin-bottom:14px}.field label{display:block;color:#b5c0d0;font-size:11px;font-weight:650;margin-bottom:8px}select{width:100%;padding:12px;color:var(--text);background:#0a0e15;border:1px solid #333d4d;border-radius:10px;outline:none}select:focus{border-color:#ff526f;box-shadow:0 0 0 3px #ff304f12}select option{background:#10151e;color:white}
+#dragTestPad{min-height:112px;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;border:1px dashed #ff526f88;border-radius:13px;background:repeating-linear-gradient(135deg,#ff304f09 0 10px,transparent 10px 20px);color:#ff91a4;touch-action:pan-y;user-select:none;font-size:12px;font-weight:700}#dragTestPad:active{background-color:#ff304f18}
+.result-grid{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.result{position:relative;min-width:0;border:1px solid #3a303d;border-radius:13px;padding:13px;background:linear-gradient(145deg,#19131e,#0c1119);opacity:0;transform:translateY(10px) scale(.97);overflow:hidden}.result:after{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red)}.result.show-result{animation:reveal .4s ease-out forwards}@keyframes reveal{to{opacity:1;transform:translateY(0) scale(1)}}.result small{color:#8793a5;font:700 9px monospace;letter-spacing:.7px;display:block}.result strong{display:block;color:#ff718b;font-size:25px;margin-top:6px;text-shadow:0 0 14px #ff244c25;line-height:1.2}
+.note{margin-top:12px;padding:12px;color:#aeb9c9;background:#ffffff05;border:1px solid #ffffff0b;border-left:3px solid var(--red);border-radius:8px;font-size:10px;line-height:1.8}#sensitivityNote{display:none}#generateAnimation{display:none;margin-top:14px;padding:14px;background:#ff304f09;border:1px solid #ff304f35;border-radius:13px;text-align:center}#generateAnimation.active{display:block;animation:panel .35s ease-out}@keyframes panel{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}.generate-btn:disabled{opacity:.8;cursor:wait}.generate-btn.loading{animation:pulse .8s infinite alternate}@keyframes pulse{to{box-shadow:0 0 22px #ff304f77}}.generate-status{color:#ff8297;font:800 10px monospace;letter-spacing:1.2px;animation:blink .7s infinite alternate}@keyframes blink{to{opacity:.6}}.generate-track{height:8px;margin-top:13px;background:#25202b;border-radius:20px;overflow:hidden}.generate-progress{width:0;height:100%;background:linear-gradient(90deg,var(--red),#ff9bad,#fff0f3);box-shadow:0 0 12px var(--red);transition:width .12s}.generate-percent{display:block;margin-top:8px;color:#ff91a5;font:800 11px monospace}
+.calibration-result{display:none;margin-top:13px;padding:13px;border:1px solid #ff304f35;border-radius:13px;background:#ff304f08;font-size:12px;line-height:1.8}.sensitivity-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #ffffff10}.sensitivity-row strong{color:#ff8297;font-size:19px}.calibration-result .note{margin-bottom:0}
+.fps-panel{text-align:center}.fps-panel .section-heading{text-align:left}.fps-number{font-size:clamp(42px,12vw,58px);color:#fff;font-weight:950;letter-spacing:-2px;text-shadow:0 0 22px #ff304f50;margin:9px 0}.fps-stage{position:relative;overflow:hidden;height:84px;margin:14px 0;border-radius:13px;background:radial-gradient(ellipse at center,#1a1420,#080b11);border:1px solid #34303e}.fps-ball{position:absolute;top:28px;left:0;width:27px;height:27px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red),0 0 28px #ff304f77;display:none}#fpsButton,#nextPageButton{width:100%}#nextPageButton{margin-top:10px;min-height:48px}.footer{text-align:center;color:#697487;font:9px/2 monospace;letter-spacing:.7px;margin:22px 0 10px;line-height:1.9}
+@media(min-width:620px){body{padding:24px}.hero{padding:25px}.section{padding:22px;margin-top:19px}.device-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.result-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hacker-animation{height:215px}}
+@media(max-width:360px){body{padding:8px}.hero{padding:14px 10px 18px}.hero:after{font-size:7px;letter-spacing:.6px;right:8px}.section{padding:13px}.device-grid,.result-grid{gap:7px}.device-item{padding:9px}.device-value{font-size:11px}.logo{letter-spacing:.5px}.section-heading{font-size:13px}.heading-caption{letter-spacing:.8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* NBU NEON V2 — visual refresh only; existing HTML and JavaScript remain intact */
+:root{--bg:#050711;--panel:#0b1020;--panel2:#10172a;--red:#a855f7;--pink:#35e7ff;--text:#f4f7ff;--muted:#93a3bd;--line:#263451;--lime:#61ffd1;color-scheme:dark}
+html{scroll-padding-top:18px}
+body{padding:clamp(10px,3vw,24px);background:radial-gradient(ellipse at 12% 0%,#32146a99,transparent 35%),radial-gradient(ellipse at 95% 25%,#063d5b77,transparent 32%),linear-gradient(145deg,#050711,#080d19 48%,#070712);background-attachment:fixed}
+body:before{opacity:.22;background-image:linear-gradient(#8d9dff0c 1px,transparent 1px),linear-gradient(90deg,#8d9dff0c 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+.hero{border:1px solid #a855f766;border-radius:28px;background:linear-gradient(125deg,#17102bdf,#091322ed 52%,#0a1a29df);box-shadow:0 22px 70px #0009,0 0 35px #8b5cf615,inset 0 1px #ffffff16}
+.hero:before{border-color:#35e7ff55;box-shadow:0 0 0 20px #35e7ff09,0 0 0 42px #a855f709,0 0 60px #35e7ff18}
+.hero:after{color:#70edff;letter-spacing:2px}
+.logo{background:linear-gradient(100deg,#fff 12%,#bda0ff 42%,#5cecff 75%,#fff);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 0 28px #6d5bff30;letter-spacing:2px}
+.logo:after{color:#6eeeff;border-color:#35e7ff77;background:linear-gradient(90deg,#35e7ff0b,#a855f718);box-shadow:0 0 18px #35e7ff0c}
+.subtitle{color:#a9b7d1;letter-spacing:2.5px}
+.status{border-color:#61ffd14a;background:#61ffd10b;color:#7dffdc;border-radius:999px;padding:9px 15px;box-shadow:0 0 22px #61ffd10a}
+.dot{background:#61ffd1;box-shadow:0 0 12px #61ffd1}
+.hacker-animation{border:1px solid #35e7ff55;border-radius:22px;background:radial-gradient(ellipse at 50% 70%,#19245b,#0b1224 56%,#060912);box-shadow:inset 0 0 38px #000b,0 0 28px #35e7ff10}
+.hacker-animation:before{background:linear-gradient(transparent 49%,#35e7ff12 50%,transparent 51%)}
+.matrix-rain span{color:#35e7ff;text-shadow:0 0 10px #35e7ff}
+.hacker{filter:drop-shadow(0 0 18px #35e7ff44)}
+.hood{border-color:#a855f7;background:linear-gradient(135deg,#34245e,#03070b 75%);box-shadow:inset 0 0 22px #a855f735}
+.face{border-color:#35e7ff55}.face i{background:#35e7ff;box-shadow:0 0 12px #35e7ff}
+.hacker-body{border-color:#a855f7;background:linear-gradient(90deg,#100a20,#25265a,#100a20)}
+.laptop{border-color:#35e7ff;box-shadow:0 0 16px #35e7ff40}.laptop:after{background:#35e7ff}.code-line{color:#75f0ff}
+.neon-ring{border-color:#35e7ff88;box-shadow:0 0 15px #35e7ff38}
+.hacker-caption{color:#75f0ff}
+.section{border:1px solid #293651;border-radius:22px;background:linear-gradient(145deg,#10182aee,#090e1bee);box-shadow:0 15px 38px #0006,inset 0 1px #ffffff0b;backdrop-filter:blur(12px)}
+.section:before{left:22px;right:22px;height:2px;background:linear-gradient(90deg,transparent,#a855f7,#35e7ff,transparent);opacity:.8}
+.section-heading{font-size:15px;letter-spacing:.2px}
+.heading-icon{border-radius:13px;color:#07101b;background:linear-gradient(135deg,#35e7ff,#a78bfa 85%);box-shadow:0 6px 20px #35e7ff20}
+.heading-caption{color:#8e9fbe;letter-spacing:1.6px}
+#deviceInfoCard{background:radial-gradient(ellipse at 100% 0,#35e7ff12,transparent 35%),linear-gradient(145deg,#111a2c,#090e1b)}
+.device-top{border-color:#35e7ff35;border-radius:16px;background:linear-gradient(100deg,#35e7ff0e,#a855f70c);}
+.device-chip{border-color:#35e7ff55;color:#70edff;background:#35e7ff0b;border-radius:10px}
+.device-item{border:1px solid #8da9d51a;background:linear-gradient(145deg,#ffffff0a,#ffffff02);border-radius:15px;padding:14px;transition:transform .22s,border-color .22s,background .22s}
+.device-item:hover{border-color:#35e7ff70;background:#35e7ff08;transform:translateY(-3px)}
+.device-value{color:#78eaff}
+.btn{border:1px solid #a855f766;border-radius:13px;color:#d4c5ff;background:linear-gradient(120deg,#a855f711,#35e7ff08);font-size:10px;letter-spacing:1px;min-height:46px;box-shadow:inset 0 1px #ffffff09;transition:transform .18s,box-shadow .18s,border-color .18s,filter .18s}
+.btn:hover{border-color:#35e7ff;box-shadow:0 0 22px #35e7ff17;filter:brightness(1.1)}
+.btn:active{transform:scale(.97);box-shadow:0 0 20px #a855f733}
+.btn.primary{color:#050a15;background:linear-gradient(105deg,#35e7ff,#a78bfa 55%,#35e7ff);background-size:220% 100%;border:1px solid #b7f7ff;box-shadow:0 8px 25px #35e7ff20,0 0 0 1px #ffffff0b inset;font-weight:950}
+.btn.primary:hover{box-shadow:0 9px 30px #35e7ff35}
+.btn.cyan{color:#a5f4ff;border-color:#35e7ff55;background:linear-gradient(110deg,#35e7ff0d,#a855f70b)}
+select{border-color:#344361;border-radius:12px;background:linear-gradient(120deg,#0b1220,#0c1020);padding:13px}
+select:focus{border-color:#35e7ff;box-shadow:0 0 0 3px #35e7ff12}
+#dragTestPad{border:1px dashed #35e7ff88;border-radius:17px;background:repeating-linear-gradient(135deg,#35e7ff08 0 10px,transparent 10px 20px);color:#8cefff;min-height:125px;box-shadow:inset 0 0 28px #35e7ff06}
+#dragTestPad:active{background-color:#35e7ff18}
+.result{border-color:#34405a;border-radius:16px;background:linear-gradient(145deg,#17172e,#0a1220);box-shadow:inset 0 1px #ffffff0a}
+.result:after{width:3px;background:linear-gradient(#35e7ff,#a855f7)}
+.result strong{color:#75edff}
+.calibration-result,.fps-stage{border-color:#31405f!important;border-radius:16px!important;background:linear-gradient(135deg,#101a2d,#0a1020)!important}
+.sensitivity-row{border-color:#ffffff10!important}
+.fps-number{color:#78edff!important;text-shadow:0 0 25px #35e7ff30}
+.fps-ball{background:radial-gradient(circle at 35% 30%,#fff,#35e7ff 35%,#6d5bff 75%)!important;box-shadow:0 0 22px #35e7ff99!important}
+.note,.device-note{color:#9aaac4}
+.footer{border-top:1px solid #283651!important;color:#8191ae!important;letter-spacing:.5px}
+@media(max-width:420px){body{padding:9px}.hero{padding:17px 11px 21px;border-radius:22px}.hacker-animation{height:190px}.section{padding:14px;border-radius:19px}.section-heading{font-size:13px}.heading-icon{width:36px;height:36px}.device-item{padding:11px}.device-value{font-size:11px}.btn{letter-spacing:.55px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* NBU COMMAND DASHBOARD — layout inspired by the supplied gaming dashboard reference */
+:root{--red:#a855f7;--pink:#38e7ff;--line:#202b43;--lime:#55f7c7}
+body{padding:0;background:#050711;color:#eef3ff;font-size:13px}
+body:before{opacity:.14;background-size:30px 30px}
+.app-shell{max-width:1600px;min-height:100vh;margin:auto;display:grid;grid-template-columns:205px minmax(0,1fr);gap:0;background:linear-gradient(115deg,#060914,#080c18 55%,#070a14);border:1px solid #222b43;border-radius:22px;overflow:hidden;box-shadow:0 25px 90px #0009}
+.sidebar{position:relative;display:flex;flex-direction:column;min-height:100%;padding:24px 14px 18px;background:linear-gradient(180deg,#080b15,#090d19);border-right:1px solid #202941}
+.side-logo{width:54px;height:54px;margin:0 auto 10px;display:grid;place-items:center;border:1px solid #a855f7;border-radius:17px;color:#d7aaff;font-size:31px;background:linear-gradient(145deg,#32135b,#10172a);box-shadow:0 0 28px #a855f733;text-shadow:0 0 14px #a855f7}
+.side-logo span{font:bold 9px monospace;letter-spacing:2px}.side-brand{text-align:center;font-size:12px;letter-spacing:2px;font-weight:800;margin-bottom:30px}.side-brand b{color:#64eaff;font-size:10px}
+.side-nav{display:grid;gap:8px}.side-nav a{display:flex;align-items:center;gap:11px;padding:12px 10px;border:1px solid transparent;border-radius:11px;color:#91a0bb;text-decoration:none;font-size:11px;font-weight:750;transition:.2s}.side-nav a span{width:22px;text-align:center;font-size:17px;color:#8191b2}.side-nav a.active,.side-nav a:hover{color:#f4eaff;border-color:#a855f766;background:linear-gradient(100deg,#a855f72b,#35e7ff09);box-shadow:0 0 20px #a855f710}.side-nav a.active span{color:#d9a9ff}
+.sidebar-bottom{display:flex;align-items:center;gap:10px;margin-top:auto;padding:15px 4px 0;border-top:1px solid #202941}.avatar-mini,.avatar-large{display:grid;place-items:center;flex-shrink:0;border:2px solid #b26cff;border-radius:50%;color:#fff;font-weight:950;background:radial-gradient(circle at 35% 25%,#5362a5,#20163d 55%,#080d19);box-shadow:0 0 15px #a855f755}.avatar-mini{width:36px;height:36px}.sidebar-bottom b,.sidebar-bottom small{display:block}.sidebar-bottom b{font-size:10px}.sidebar-bottom small{font:8px monospace;color:#7e91b0;margin-top:4px;letter-spacing:1px}
+.container{width:100%;max-width:none;min-width:0;margin:0;padding:20px 22px 18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px;padding:0 2px}.topbar small{font:8px monospace;letter-spacing:1.7px;color:#8291ad}.topbar h2{font-size:19px;margin:3px 0 0;letter-spacing:.7px}.topbar h2 span{color:#8e7bff;font-size:11px;margin-left:8px}.topbar-status{white-space:nowrap;color:#6fffd5;border:1px solid #55f7c744;background:#55f7c70a;border-radius:30px;padding:8px 11px;font:800 8px monospace;letter-spacing:1px}.topbar-status i{display:inline-block;width:6px;height:6px;margin-right:5px;border-radius:50%;background:#55f7c7;box-shadow:0 0 9px #55f7c7}
+.hero{display:none}.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(245px,1fr);gap:15px;align-items:stretch}.feature-card{position:relative;display:flex;min-height:290px;overflow:hidden;border:1px solid #293453;border-radius:17px;background:radial-gradient(ellipse at 73% 50%,#39206c88,transparent 43%),linear-gradient(120deg,#11172b,#090e1c 70%,#0d1730);box-shadow:0 15px 40px #0006,inset 0 1px #ffffff0b}.feature-copy{position:relative;z-index:2;width:57%;padding:26px 0 25px 24px}.feature-tag{display:inline-block;padding:6px 9px;border:1px solid #35e7ff55;border-radius:4px;color:#6deaff;background:#35e7ff0b;font:800 8px monospace;letter-spacing:1px}.feature-copy h2{font-size:clamp(27px,4vw,47px);line-height:.98;letter-spacing:-1.6px;margin:19px 0 12px;font-weight:950}.feature-copy h2 em{font-style:normal;background:linear-gradient(90deg,#b477ff,#53e8ff);color:transparent;background-clip:text;-webkit-background-clip:text}.feature-copy p{max-width:240px;color:#9caac4;font-size:10px;line-height:1.8}.feature-button{display:inline-flex;align-items:center;gap:17px;margin-top:10px;padding:11px 14px;border:1px solid #c7a4ff;border-radius:8px;color:#070b18;background:linear-gradient(100deg,#b36cff,#42e6ff);text-decoration:none;font-size:9px;font-weight:950;letter-spacing:.6px;box-shadow:0 7px 22px #a855f733}.feature-button b{font-size:14px}.feature-art{position:absolute;inset:0 0 0 38%;overflow:hidden;pointer-events:none}.art-orb{position:absolute;width:185px;height:185px;right:12%;top:23px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9bff,#a33cff 34%,#3929a5 65%,#11172b 72%);opacity:.82;filter:blur(.2px);box-shadow:0 0 45px #a855f766}.art-ring{position:absolute;border:1px solid #7a72ff66;border-radius:50%;transform:rotate(-20deg)}.ring-a{width:290px;height:95px;right:-8%;top:100px}.ring-b{width:250px;height:70px;right:1%;top:122px;border-color:#35e7ff77}.art-person{position:absolute;width:110px;height:190px;right:23%;bottom:12px;filter:drop-shadow(0 0 16px #171329)}.art-head{position:absolute;z-index:2;top:14px;left:36px;width:42px;height:48px;border:2px solid #9d8aff;border-radius:48% 48% 38% 38%;background:linear-gradient(135deg,#283b5b,#080b16 65%)}.art-body{position:absolute;top:53px;left:9px;width:96px;height:130px;border:2px solid #6753be;border-radius:45% 45% 10% 10%;background:linear-gradient(90deg,#080d1a,#202750 45%,#090d19);clip-path:polygon(25% 0,75% 0,100% 35%,85% 100%,15% 100%,0 35%)}.art-screen{position:absolute;z-index:3;bottom:12px;left:7px;width:98px;height:38px;display:grid;place-content:center;text-align:center;border:1px solid #35e7ff88;border-radius:5px;background:#07111eea;color:#66efff;font:bold 10px monospace;box-shadow:0 0 18px #35e7ff22}.art-screen small{font-size:7px}.art-code{position:absolute;right:5%;top:12px;color:#4deaff;font:9px/1.8 monospace;opacity:.45}.feature-progress{position:absolute;z-index:3;right:13px;bottom:13px;width:112px;padding:10px;border:1px solid #34405c;border-radius:9px;background:#080d1bd9}.feature-progress small,.feature-progress b{display:block;font:8px monospace;color:#8797b6;letter-spacing:.6px}.feature-progress b{font:bold 15px system-ui;color:#8affdc;margin:5px 0}.feature-progress div,.profile-line{height:4px;background:#222b42;border-radius:8px;overflow:hidden;margin:7px 0}.feature-progress div i,.profile-line i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#a855f7,#35e7ff);box-shadow:0 0 10px #35e7ff}
+.right-rail{padding:15px;border:1px solid #252f49;border-radius:17px;background:linear-gradient(145deg,#0e1423,#090e1a);min-width:0}.rail-heading{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:1px 0 12px;font-size:11px}.rail-heading span{font:8px monospace;color:#b69aff}.module-card{display:flex;align-items:center;gap:10px;padding:10px;margin-top:8px;border:1px solid #222c43;border-radius:11px;background:linear-gradient(110deg,#121b2d,#0b1120);text-decoration:none;color:inherit;min-width:0;transition:.2s}.module-card:hover{border-color:#8d69dc;transform:translateY(-1px)}.module-icon{display:grid;place-items:center;width:43px;height:43px;flex-shrink:0;border-radius:9px;font-size:20px;background:#a855f71c;color:#c9a6ff}.module-icon.blue{color:#6ceaff;background:#35e7ff13}.module-icon.green{color:#68ffd0;background:#55f7c713}.module-icon.orange{color:#ffb46e;background:#ff9e4314}.module-card>span:nth-child(2){flex:1;min-width:0}.module-card b,.module-card small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.module-card b{font-size:9px;letter-spacing:.4px}.module-card small{margin-top:4px;color:#8190ad;font-size:8px}.module-card strong{color:#8e9db9;font-size:13px}.module-card i{display:block;height:3px;margin-top:7px;background:#202a40;border-radius:5px;overflow:hidden}.module-card u{display:block;height:100%;background:linear-gradient(90deg,#a855f7,#35e7ff);text-decoration:none}.player-card{margin-top:13px;padding:13px;border:1px solid #2a3450;border-radius:12px;background:radial-gradient(ellipse at 100% 0,#5636a722,transparent 55%),#0a1020}.player-top{display:flex;align-items:center;gap:10px}.avatar-large{width:48px;height:48px;font-size:19px}.player-top small,.player-top b,.player-top span{display:block}.player-top small{font:8px monospace;color:#8b9ab6;letter-spacing:1px}.player-top b{font-size:10px;margin:4px 0}.player-top span{font-size:8px;color:#9ba9c2}.player-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:14px;gap:5px}.player-stats div{padding:8px 4px;border-right:1px solid #26314a}.player-stats div:last-child{border:0}.player-stats b,.player-stats small{display:block}.player-stats b{font-size:13px;color:#e8eaff}.player-stats small{font:7px monospace;color:#8191ae;margin-top:3px}.activity-heading{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 12px}.activity-heading b,.activity-heading small{display:block}.activity-heading b{font-size:11px;letter-spacing:1px}.activity-heading small{font:8px monospace;color:#8191ae;letter-spacing:1px;margin-top:4px}.activity-heading>span{color:#65f8d1;font:8px monospace;letter-spacing:.8px}
+.section{margin-top:13px;padding:18px;border-color:#252f49;border-radius:16px;background:linear-gradient(145deg,#0f1626f2,#090e19f7);box-shadow:0 10px 30px #0004}.section:before{left:18px;right:18px;background:linear-gradient(90deg,transparent,#a855f7,#35e7ff,transparent)}.section-heading{font-size:13px;margin-bottom:15px}.heading-icon{width:35px;height:35px}.device-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.device-item{padding:12px}.device-top{margin-bottom:12px}.result-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.result strong{font-size:23px}.btn.primary{color:#070b16}.footer{margin-top:22px}
+@media(min-width:1200px){.container{padding:25px 28px}.dashboard-grid{grid-template-columns:minmax(0,1.7fr) minmax(290px,.95fr)}.feature-card{min-height:315px}.section:not(#deviceInfoCard){display:inline-block;vertical-align:top;width:calc(50% - 8px);margin-right:10px}.section.fps-panel{margin-right:0}#deviceInfoCard{width:100%}.device-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1050px){.app-shell{grid-template-columns:150px minmax(0,1fr)}.sidebar{padding:18px 9px}.container{padding:16px}.dashboard-grid{grid-template-columns:1fr}.right-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.rail-heading,.player-card{grid-column:1/-1}.module-card{margin:0}.player-card{margin-top:4px}.feature-card{min-height:270px}}
+@media(max-width:680px){.app-shell{display:block;border:0;border-radius:0;overflow:visible}.sidebar{position:sticky;z-index:20;top:0;min-height:0;height:auto;padding:8px 10px;display:flex;flex-direction:row;align-items:center;gap:10px;border-right:0;border-bottom:1px solid #202941;background:#080c17ed;backdrop-filter:blur(16px)}.side-logo{width:37px;height:37px;margin:0;border-radius:11px;font-size:22px;flex-shrink:0}.side-brand{margin:0;text-align:left;font-size:9px;line-height:1.4;white-space:nowrap}.side-brand b{font-size:8px}.side-nav{display:flex;gap:5px;overflow-x:auto;flex:1;scrollbar-width:none}.side-nav::-webkit-scrollbar{display:none}.side-nav a{flex-shrink:0;padding:8px;border-radius:9px;font-size:0;gap:0}.side-nav a span{font-size:17px;width:22px}.sidebar-bottom{display:none}.container{padding:12px 10px}.topbar{margin-bottom:12px}.topbar h2{font-size:16px}.topbar-status{padding:7px;font-size:7px}.dashboard-grid{gap:10px}.feature-card{min-height:270px}.feature-copy{padding:20px 0 18px 17px;width:65%}.feature-copy h2{font-size:34px}.feature-copy p{max-width:185px;font-size:9px}.feature-art{left:28%}.art-orb{width:145px;height:145px;right:0;top:45px}.art-person{right:12%;transform:scale(.86);transform-origin:bottom right}.feature-progress{width:95px;right:8px;bottom:8px;padding:7px}.feature-progress small{font-size:7px}.right-rail{padding:10px;gap:7px}.module-card{padding:8px;gap:7px}.module-icon{width:33px;height:35px;font-size:16px}.module-card b{font-size:8px}.module-card small{font-size:7px}.player-card{padding:10px}.activity-heading{margin-top:17px}.section{padding:14px;margin-top:10px;border-radius:14px}.section-heading{font-size:12px;gap:8px}.heading-caption{font-size:7px}.device-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.device-item{padding:10px}.device-label{font-size:8px}.device-value{font-size:11px}.result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.result strong{font-size:24px}.footer{font-size:8px}}
+@media(max-width:370px){.side-brand{display:none}.feature-copy h2{font-size:29px}.feature-copy{width:70%;padding-left:13px}.feature-progress{display:none}.right-rail{grid-template-columns:1fr}.rail-heading,.player-card{grid-column:auto}.module-card{padding:10px}.topbar-status{font-size:6px}.device-top h3{font-size:14px}}
+
+</style>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="side-logo">✦<span>NBU</span></div>
+  <div class="side-brand">NETHA<br><b>BOOST ULTRA</b></div>
+  <nav class="side-nav" aria-label="Main navigation">
+    <a class="active" href="#dashboard"><span>⌂</span> Dashboard</a>
+    <a href="#deviceInfoCard"><span>▣</span> Device scan</a>
+    <a href="#sensitivitySection"><span>⌖</span> Playground</a>
+    <a href="#calibrationSection"><span>◉</span> Calibration</a>
+    <a href="#fpsSection"><span>ϟ</span> Performance</a>
+    <a href="#collection"><span>◇</span> Collection</a>
+  </nav>
+  <div class="sidebar-bottom"><div class="avatar-mini">N</div><div><b>PLAYER ONE</b><small>ULTRA MEMBER</small></div></div>
+</aside>
+<div class="container" id="dashboard">
+<div class="topbar"><div><small>WELCOME BACK, PLAYER</small><h2>NETHA BOOST <span>ULTRA</span></h2></div><div class="topbar-status"><i></i> SYSTEM ONLINE</div></div>
+<header class="hero">
+<div class="hacker-animation" aria-label="Animated neon cyber character">
+<div class="matrix-rain" aria-hidden="true"><span>0101<br>1010<br>1101<br>0010</span><span>1010<br>0011<br>1100<br>1011</span><span>1101<br>0100<br>1010<br>0110</span><span>0011<br>1010<br>0101<br>1100</span><span>1011<br>1100<br>0010<br>1010</span></div>
+<div class="hacker" aria-hidden="true"><div class="hood"></div><div class="face"><i></i><i></i></div><div class="hacker-body"></div><div class="laptop"><span class="code-line">&gt; INITIALIZING...</span><span class="code-line">&gt; SYSTEM ONLINE</span><span class="code-line">&gt; NETHA BOOST</span></div></div>
+<div class="neon-ring"></div><div class="hacker-caption">SYSTEM ONLINE // NETHA</div>
 </div>
-    <div class="logo">NETHA BOOST</div>  
-    
-    <div class="subtitle">ULTRA GAMING TOOLKIT</div>  
-    <div class="status"><span class="dot"></span> BROWSER TOOL READY</div>  
-  </header>    <!-- DEVICE INFORMATION -->    <section class="section" id="deviceInfoCard">  
-    <h2 class="section-heading">  
-      <span class="heading-icon">▣</span>  
-      <span>  
-        DEVICE INFORMATION  
-        <span class="heading-caption">YOUR DEVICE · LIVE BROWSER DATA</span>  
-      </span>  
-    </h2>  <div class="device-top">  
-  <div>  
-    <small>DETECTED DEVICE</small>  
-    <h3 id="deviceModel">Detecting device...</h3>  
-  </div>  
-  <div class="device-chip">DEVICE SCAN</div>  
-</div>  
-
-<div class="device-grid">  
-  <div class="device-item">  
-    <div class="device-label">◈ Operating system</div>  
-    <div class="device-value" id="osVersion">Checking...</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Android version</div>  
-    <div class="device-value" id="androidVersion">Checking...</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Browser</div>  
-    <div class="device-value" id="browser">Checking...</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Screen size</div>  
-    <div class="device-value" id="cssScreen">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Viewport</div>  
-    <div class="device-value" id="viewport">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Pixel ratio</div>  
-    <div class="device-value" id="dpr">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Estimated pixels</div>  
-    <div class="device-value" id="physicalPixels">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ CPU threads</div>  
-    <div class="device-value" id="cores">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Memory hint</div>  
-    <div class="device-value" id="memory">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Network hint</div>  
-    <div class="device-value" id="network">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Language</div>  
-    <div class="device-value" id="language">--</div>  
-  </div>  
-
-  <div class="device-item">  
-    <div class="device-label">◈ Touch support</div>  
-    <div class="device-value" id="touch">--</div>  
-  </div>  
-</div>  
-
-<div class="device-footer">  
-  <div class="device-note">  
-    Some details may be hidden by your browser. Estimated pixels are not an official display specification.  
-  </div>  
-  <button class="btn cyan" onclick="detectDevice()">↻ Refresh scan</button>  
+<div class="logo">NETHA BOOST</div><div class="subtitle">ULTRA GAMING TOOLKIT</div><div class="status"><span class="dot"></span> BROWSER TOOL READY</div>
+</header>
+<div class="dashboard-grid">
+  <section class="feature-card">
+    <div class="feature-copy"><span class="feature-tag">● TOOLKIT ACTIVE</span><h2>BOOST YOUR<br><em>GAMEPLAY</em></h2><p>Device insights. Sensitivity tools. Performance checks.</p><a class="feature-button" href="#sensitivitySection">OPEN PLAYGROUND <b>↗</b></a></div>
+    <div class="feature-art" aria-hidden="true"><div class="art-orb"></div><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-person"><div class="art-head"></div><div class="art-body"></div><div class="art-screen">NBU<br><small>ONLINE</small></div></div><div class="art-code">0101<br>1100<br>0011<br>1010</div></div>
+    <div class="feature-progress"><small>TOOLKIT STATUS</small><b>READY</b><div><i></i></div><small>ALL SYSTEMS OPERATIONAL</small></div>
+  </section>
+  <aside class="right-rail" id="collection">
+    <div class="rail-heading"><b>MY TOOLKIT</b><span>6 MODULES</span></div>
+    <a href="#deviceInfoCard" class="module-card"><span class="module-icon purple">▣</span><span><b>DEVICE SCAN</b><small>Live browser information</small><i><u style="width:88%"></u></i></span><strong>↗</strong></a>
+    <a href="#sensitivitySection" class="module-card"><span class="module-icon blue">⌖</span><span><b>SENSITIVITY LAB</b><small>Personal starting values</small><i><u style="width:72%"></u></i></span><strong>↗</strong></a>
+    <a href="#calibrationSection" class="module-card"><span class="module-icon green">◎</span><span><b>HEADSHOT LAB</b><small>Fine-tune your settings</small><i><u style="width:64%"></u></i></span><strong>↗</strong></a>
+    <a href="#fpsSection" class="module-card"><span class="module-icon orange">ϟ</span><span><b>FPS MONITOR</b><small>Browser animation test</small><i><u style="width:91%"></u></i></span><strong>↗</strong></a>
+    <div class="player-card"><div class="player-top"><span class="avatar-large">N</span><div><small>PLAYER PROFILE</small><b>NETHA BOOST</b><span>Cyber operator</span></div></div><div class="player-stats"><div><b>04</b><small>MODULES</small></div><div><b>100%</b><small>READY</small></div><div><b>LIVE</b><small>STATUS</small></div></div><div class="profile-line"><i></i></div></div>
+  </aside>
 </div>
-
-  </section>    <!-- SENSITIVITY HELPER -->    <section class="section">  
-    <h2 class="section-heading">  
-      <span class="heading-icon">⌖</span>  
-      <span>  
-        SENSITIVITY HELPER  
-        <span class="heading-caption">STARTING SETTINGS · ADJUST IN GAME</span>  
-      </span>  
-    </h2>  <div class="field">  
-  <label for="game">Select game</label>  
-  <select id="game">  
-    <option value="ff">Free Fire</option>  
-    <option value="ffmax">Free Fire MAX</option>  
-  </select>  
-</div>  
-
-<div class="field">  
-  <label for="aimStyle">Playing style</label>  
-  <select id="aimStyle">  
-    <option value="balanced">Balanced</option>  
-    <option value="rush">Close-range / Rush</option>  
-    <option value="range">Long-range / Stable aim</option>  
-  </select>  
-</div>  
-
-<div class="field">  
-  <label for="drag">Aim drag behaviour</label>  
-  <select id="drag">  
-    <option value="normal">Normal</option>  
-    <option value="slow">Aim moves too slowly</option>  
-    <option value="fast">Aim goes above the head</option>  
-  </select>  
-</div>  
-<div class="field">
-  <label>👆 Touch & Drag Speed Test</label>
-
-  <div id="dragTestPad" style="
-    min-height:110px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:15px;
-    border:1px solid rgba(0,217,255,.35);
-    border-radius:12px;
-    background:rgba(0,217,255,.05);
-    color:var(--cyan);
-    touch-action:pan-y;
-    user-select:none;
-  ">
-    මෙතැන ඇඟිල්ලෙන් වමට හෝ දකුණට drag කරන්න
-  </div>
-
-  <div class="note" id="dragTestResult">
-    Drag test කරලා speed එක මැනගන්න.
-  </div>
-
-  <button type="button" class="btn cyan"
-    onclick="resetDragTest()">
-    ↻ RESET DRAG TEST
-  </button>
+<div class="activity-heading"><div><b>CONTROL CENTER</b><small>YOUR GAMING TOOLKIT</small></div><span>● LIVE DASHBOARD</span></div>
+<section class="section" id="deviceInfoCard">
+<h2 class="section-heading"><span class="heading-icon">▣</span><span>DEVICE INFORMATION<span class="heading-caption">YOUR DEVICE · LIVE BROWSER DATA</span></span></h2>
+<div class="device-top"><div><small>DETECTED DEVICE</small><h3 id="deviceModel">Detecting device...</h3></div><div class="device-chip">DEVICE SCAN</div></div>
+<div class="device-grid">
+<div class="device-item"><div class="device-label">◈ Operating system</div><div class="device-value" id="osVersion">Checking...</div></div>
+<div class="device-item"><div class="device-label">◈ Android version</div><div class="device-value" id="androidVersion">Checking...</div></div>
+<div class="device-item"><div class="device-label">◈ Browser</div><div class="device-value" id="browser">Checking...</div></div>
+<div class="device-item"><div class="device-label">◈ Screen size</div><div class="device-value" id="cssScreen">--</div></div>
+<div class="device-item"><div class="device-label">◈ Viewport</div><div class="device-value" id="viewport">--</div></div>
+<div class="device-item"><div class="device-label">◈ Pixel ratio</div><div class="device-value" id="dpr">--</div></div>
+<div class="device-item"><div class="device-label">◈ Estimated pixels</div><div class="device-value" id="physicalPixels">--</div></div>
+<div class="device-item"><div class="device-label">◈ CPU threads</div><div class="device-value" id="cores">--</div></div>
+<div class="device-item"><div class="device-label">◈ Memory hint</div><div class="device-value" id="memory">--</div></div>
+<div class="device-item"><div class="device-label">◈ Network hint</div><div class="device-value" id="network">--</div></div>
+<div class="device-item"><div class="device-label">◈ Language</div><div class="device-value" id="language">--</div></div>
+<div class="device-item"><div class="device-label">◈ Touch support</div><div class="device-value" id="touch">--</div></div>
 </div>
-<button
-  class="btn primary generate-btn"
-  id="generateButton"
-  onclick="generateSensitivity()"
->
-  <span class="btn-text" id="generateButtonText">
-    ⚡ GENERATE SENSITIVITY
-  </span>
-</button>
+<div class="device-footer"><div class="device-note">Some details may be hidden by your browser. Estimated pixels are not an official display specification.</div><button class="btn cyan" type="button" onclick="detectDevice()">↻ Refresh scan</button></div>
+</section>
 
-<div id="generateAnimation" aria-live="polite">
-  <div class="generate-status" id="generateStatus">
-    INITIALIZING...
-  </div>
-
-  <div class="generate-track">
-    <div class="generate-progress" id="generateProgress"></div>
-  </div>
-
-  <span class="generate-percent" id="generatePercent">0%</span>
-</div>  
-
+<section class="section" id="sensitivitySection">
+<h2 class="section-heading"><span class="heading-icon">⌖</span><span>SENSITIVITY HELPER<span class="heading-caption">STARTING SETTINGS · ADJUST IN GAME</span></span></h2>
+<div class="field"><label for="game">Select game</label><select id="game"><option value="ff">Free Fire</option><option value="ffmax">Free Fire MAX</option></select></div>
+<div class="field"><label for="aimStyle">Playing style</label><select id="aimStyle"><option value="balanced">Balanced</option><option value="rush">Close-range / Rush</option><option value="range">Long-range / Stable aim</option></select></div>
+<div class="field"><label for="drag">Aim drag behaviour</label><select id="drag"><option value="normal">Normal</option><option value="slow">Aim moves too slowly</option><option value="fast">Aim goes above the head</option></select></div>
+<div class="field"><label for="dragTestPad">👆 Touch &amp; Drag Speed Test</label><div id="dragTestPad" role="button" tabindex="0">මෙතැන ඇඟිල්ලෙන් වමට හෝ දකුණට drag කරන්න</div><div class="note" id="dragTestResult" aria-live="polite">Drag test කරලා speed එක මැනගන්න.</div><button type="button" class="btn cyan" onclick="resetDragTest()">↻ RESET DRAG TEST</button></div>
+<button type="button" class="btn primary generate-btn" id="generateButton" onclick="generateSensitivity()"><span id="generateButtonText">⚡ GENERATE SENSITIVITY</span></button>
+<div id="generateAnimation" aria-live="polite"><div class="generate-status" id="generateStatus">INITIALIZING...</div><div class="generate-track"><div class="generate-progress" id="generateProgress"></div></div><span class="generate-percent" id="generatePercent">0%</span></div>
 <div class="result-grid" id="sensitivityResults">
+<div class="result"><small>General</small><strong id="general">190</strong></div><div class="result"><small>Red Dot</small><strong id="redDot">180</strong></div><div class="result"><small>2× Scope</small><strong id="scope2">170</strong></div><div class="result"><small>4× Scope</small><strong id="scope4">155</strong></div><div class="result"><small>Sniper Scope</small><strong id="sniper">90</strong></div><div class="result"><small>Free Look</small><strong id="freeLook">150</strong></div><div class="result"><small>🔥 Fire Button Size</small><strong id="fireButtonSize">--%</strong></div>
+</div>
+<div class="note" id="sensitivityNote">Select your options and press Generate settings.</div>
+</section>
 
-  <div class="result">
-    <small>General</small>
-    <strong id="general">190</strong>
-  </div>
+<section class="section" id="calibrationSection">
+<h2 class="section-heading"><span class="heading-icon">◎</span><span>HEADSHOT CALIBRATION<span class="heading-caption">TEST AND ADJUST YOUR SENSITIVITY</span></span></h2>
+<div class="note">Training Ground එකේ shots 10ක් test කරලා crosshair එකේ හැසිරීම අනුව පහත option එක තෝරන්න. මේක ඊළඟට test කළ යුතු sensitivity values යෝජනා කරයි.</div>
+<div class="field"><label for="feedback">What happens when you drag?</label><select id="feedback"><option value="high">Crosshair goes above the head</option><option value="low">Crosshair stays below the head</option><option value="mixed">Sometimes high, sometimes low</option><option value="good">Aim feels good</option></select></div>
+<button type="button" class="btn primary" onclick="calibrate()">CALCULATE NEXT SETTINGS</button>
+<div class="calibration-result" id="calibrationResult"><div class="sensitivity-row"><span>Suggested General</span><strong id="calGeneral">--</strong></div><div class="sensitivity-row"><span>Suggested Red Dot</span><strong id="calRedDot">--</strong></div><p class="note" id="calNote"></p></div>
+</section>
 
-  <div class="result">
-    <small>Red Dot</small>
-    <strong id="redDot">180</strong>
-  </div>
-
-  <div class="result">
-    <small>2× Scope</small>
-    <strong id="scope2">170</strong>
-  </div>
-
-  <div class="result">
-    <small>4× Scope</small>
-    <strong id="scope4">155</strong>
-  </div>
-
-  <div class="result">
-    <small>Sniper Scope</small>
-    <strong id="sniper">90</strong>
-  </div>
-
-  <div class="result">
-    <small>Free Look</small>
-    <strong id="freeLook">150</strong>
-  </div>
-
-  <div class="result">
-    <small>🔥 Fire Button Size</small>
-    <strong id="fireButtonSize">--%</strong>
-  </div>
-
+<section class="section fps-panel" id="fpsSection">
+<h2 class="section-heading"><span class="heading-icon">⚡</span><span>BROWSER FPS TEST<span class="heading-caption">ANIMATION PERFORMANCE CHECK</span></span></h2>
+<div class="fps-number" id="fpsValue">--</div><div style="color:var(--muted);font-size:10px">Estimated browser animation FPS</div>
+<div class="fps-stage"><div class="fps-ball" id="fpsBall"></div></div>
+<button type="button" class="btn primary" id="fpsButton" onclick="startFpsTest()">▶ Start FPS test</button>
+<button type="button" class="btn cyan" id="nextPageButton" onclick="goToNextPage()">NEXT PAGE →</button>
+<div class="note">This test measures browser animation only. It does not measure Free Fire's actual FPS or remove game lag.</div>
+</section>
+<footer class="footer">NETHA BOOST ULTRA · DEVICE INFO &amp; GAMING SETTINGS<br>Local browser tool · No root required · No game files modified</footer>
+</div>
 </div>
 
-<div class="note" id="sensitivityNote">
-  Select your options and press Generate settings.
-</div>
-
-<div class="note" id="sensitivityNote">
-  Select your options and press Generate settings.
-</div>
-
-  </section>    <!-- HEADSHOT CALIBRATION -->  <section class="section">  
-  <h2 class="section-heading">  
-    <span class="heading-icon">◎</span>  
-    <span>  
-      HEADSHOT CALIBRATION  
-      <span class="heading-caption">TEST AND ADJUST YOUR SENSITIVITY</span>  
-    </span>  
-  </h2>    <div class="note">  
-    Training Ground එකේ shots 10ක් test කරලා crosshair එකේ හැසිරීම අනුව  
-    පහත option එක තෝරන්න. මේක ඊළඟට test කළ යුතු sensitivity values  
-    යෝජනා කරයි.  
-  </div>    <div class="field">  
-    <label for="feedback">What happens when you drag?</label>  
-    <select id="feedback">  
-      <option value="high">Crosshair goes above the head</option>  
-      <option value="low">Crosshair stays below the head</option>  
-      <option value="mixed">Sometimes high, sometimes low</option>  
-      <option value="good">Aim feels good</option>  
-    </select>  
-  </div>  <button class="btn primary" onclick="calibrate()">CALCULATE NEXT SETTINGS</button>
-
-  <div class="calibration-result" id="calibrationResult">
-  <div class="sensitivity-row">
-    <span>Suggested General</span>
-    <strong id="calGeneral">--</strong>
-  </div>
-
-  <div class="sensitivity-row">
-    <span>Suggested Red Dot</span>
-    <strong id="calRedDot">--</strong>
-  </div>
-
-  <p class="note" id="calNote"></p>
-</div>  
-
-<p class="note" id="calNote"></p>
-
-  </div>  
-</section>    <!-- BROWSER FPS TEST -->    <section class="section fps-panel">  
-    <h2 class="section-heading">  
-      <span class="heading-icon">⚡</span>  
-      <span>  
-        BROWSER FPS TEST  
-        <span class="heading-caption">ANIMATION PERFORMANCE CHECK</span>  
-      </span>  
-    </h2>  <div class="fps-number" id="fpsValue">--</div>  
-<div style="color:var(--muted);font-size:11px">Estimated browser animation FPS</div>  
-
-<div class="fps-stage">  
-  <div class="fps-ball" id="fpsBall"></div>  
-</div>  
-
-<button class="btn primary" id="fpsButton" onclick="startFpsTest()">▶ Start FPS test</button>  
-
-<button
-  class="btn cyan"
-  id="nextPageButton"
-  onclick="goToNextPage()"
-  style="width:100%; margin-top:12px; padding:14px;"
->
-  NEXT PAGE →
-</button>
-
-<div class="note">  
-  This test measures browser animation only. It does not measure Free Fire's actual FPS or remove game lag.  
-</div>
-
-  </section>    <footer class="footer">  
-    NETHA BOOST ULTRA · DEVICE INFO & GAMING SETTINGS<br>  
-    Local browser tool · No root required · No game files modified  
-  </footer>  
-</div>  <script>  
-"use strict";  
-  
-function setText(id, value) {  
-  const element = document.getElementById(id);  
-  if (element) element.textContent = value;  
-}  
-  
-function getBrowser(ua) {  
-  if (/EdgA?\//i.test(ua)) return "Microsoft Edge";  
-  if (/OPR\//i.test(ua)) return "Opera";  
-  if (/SamsungBrowser/i.test(ua)) return "Samsung Internet";  
-  if (/Firefox\//i.test(ua)) return "Firefox";  
-  if (/CriOS/i.test(ua)) return "Chrome (iOS)";  
-  if (/Chrome\//i.test(ua)) return "Chrome";  
-  if (/Safari\//i.test(ua)) return "Safari";  
-  return "Unknown browser";  
-}  
-  
-function detectDevice() {  
-  const ua = navigator.userAgent || "";  
-  let model = "Not exposed by browser";  
-  let os = "Unknown";  
-  let android = "Not detected";  
-  
-  // User-Agent model detection is not guaranteed.  
-  const modelMatch = ua.match(/Android[^;)]*;\s*([^;)]+)\s+Build\//i);  
-  
-  if (modelMatch && modelMatch[1]) {  
-    model = modelMatch[1].trim();  
-  } else if (/Redmi 13/i.test(ua)) {  
-    model = "Redmi 13";  
-  } else if (/Android/i.test(ua)) {  
-    model = "Android device";  
-  } else if (/iPhone/i.test(ua)) {  
-    model = "iPhone";  
-  } else if (/iPad/i.test(ua)) {  
-    model = "iPad";  
-  }  
-  
-  const androidMatch = ua.match(/Android\s([0-9.]+)/i);  
-  
-  if (/Android/i.test(ua)) {  
-    os = "Android";  
-    if (androidMatch) android = androidMatch[1];  
-  } else if (/Windows NT/i.test(ua)) {  
-    os = "Windows";  
-  } else if (/iPhone|iPad|iPod/i.test(ua)) {  
-    os = "iOS / iPadOS";  
-  } else if (/Mac OS X/i.test(ua)) {  
-    os = "macOS";  
-  } else if (/Linux/i.test(ua)) {  
-    os = "Linux";  
-  }  
-  
-  setText("deviceModel", model);  
-  setText("osVersion", os);  
-  setText("androidVersion", android);  
-  setText("browser", getBrowser(ua));  
-  
-  setText(  
-    "cssScreen",  
-    screen.width + " × " + screen.height + " px"  
-  );  
-  
-  setText(  
-    "viewport",  
-    window.innerWidth + " × " + window.innerHeight + " px"  
-  );  
-  
-  const dpr = window.devicePixelRatio || 1;  
-  setText("dpr", dpr.toFixed(2) + "×");  
-  
-  setText(  
-    "physicalPixels",  
-    Math.round(screen.width * dpr) +  
-    " × " +  
-    Math.round(screen.height * dpr) +  
-    " est."  
-  );  
-  
-  setText(  
-    "cores",  
-    navigator.hardwareConcurrency  
-      ? navigator.hardwareConcurrency + " reported"  
-      : "Unavailable"  
-  );  
-  
-  setText(  
-    "memory",  
-    navigator.deviceMemory  
-      ? navigator.deviceMemory + " GB hint"  
-      : "Unavailable"  
-  );  
-  
-  const connection =  
-    navigator.connection ||  
-    navigator.mozConnection ||  
-    navigator.webkitConnection;  
-  
-  setText(  
-    "network",  
-    connection && connection.effectiveType  
-      ? connection.effectiveType.toUpperCase()  
-      : "Unavailable"  
-  );  
-  
-  setText("language", navigator.language || "Unknown");  
-  
-  setText(  
-    "touch",  
-    navigator.maxTouchPoints > 0 ? "Supported" : "Not reported"  
-  );  
-}  
-  let measuredDragSpeed = null;
-let dragStartX = 0;
-let dragStartTime = 0;
-let dragActive = false;
-
-const dragPad = document.getElementById("dragTestPad");
-
-dragPad.addEventListener("pointerdown", function(e) {
-  dragStartX = e.clientX;
-  dragStartTime = performance.now();
-  dragActive = true;
-  dragPad.setPointerCapture(e.pointerId);
-  dragPad.textContent = "Drag කරන්න...";
-});
-
-dragPad.addEventListener("pointerup", function(e) {
-  if (!dragActive) return;
-
-  const distance = Math.abs(e.clientX - dragStartX);
-  const elapsed = performance.now() - dragStartTime;
-
-  dragActive = false;
-
-  if (elapsed < 30 || distance < 15) {
-    document.getElementById("dragTestResult").textContent =
-      "තව ටිකක් දිගට drag කරලා නැවත test කරන්න.";
-    return;
-  }
-
-  measuredDragSpeed = Math.round(distance / (elapsed / 1000));
-
-  document.getElementById("dragTestResult").textContent =
-    "Measured drag speed: " + measuredDragSpeed +
-    " CSS px/sec. මෙය browser drag speed එකක් පමණයි.";
-
-  dragPad.textContent = "Test complete ✓";
-});
-
-dragPad.addEventListener("pointercancel", function() {
-  dragActive = false;
-});
-
-function resetDragTest() {
-  measuredDragSpeed = null;
-  dragActive = false;
-
-  dragPad.textContent =
-    "මෙතැන ඇඟිල්ලෙන් වමට හෝ දකුණට drag කරන්න";
-
-  document.getElementById("dragTestResult").textContent =
-    "Drag test කරලා speed එක මැනගන්න.";
+<script>
+"use strict";
+function setText(id,value){const el=document.getElementById(id);if(el)el.textContent=value}
+function getBrowser(ua){if(/EdgA?\//i.test(ua))return"Microsoft Edge";if(/OPR\//i.test(ua))return"Opera";if(/SamsungBrowser/i.test(ua))return"Samsung Internet";if(/Firefox\//i.test(ua))return"Firefox";if(/CriOS/i.test(ua))return"Chrome (iOS)";if(/Chrome\//i.test(ua))return"Chrome";if(/Safari\//i.test(ua))return"Safari";return"Unknown browser"}
+function detectDevice(){
+ const ua=navigator.userAgent||"";let model="Not exposed by browser",os="Unknown",android="Not detected";
+ const mm=ua.match(/Android[^;)]*;\s*([^;)]+)\s+Build\//i);
+ if(mm&&mm[1])model=mm[1].trim();else if(/Redmi 13/i.test(ua))model="Redmi 13";else if(/Android/i.test(ua))model="Android device";else if(/iPhone/i.test(ua))model="iPhone";else if(/iPad/i.test(ua))model="iPad";
+ const am=ua.match(/Android\s([0-9.]+)/i);
+ if(/Android/i.test(ua)){os="Android";if(am)android=am[1]}else if(/Windows NT/i.test(ua))os="Windows";else if(/iPhone|iPad|iPod/i.test(ua))os="iOS / iPadOS";else if(/Mac OS X/i.test(ua))os="macOS";else if(/Linux/i.test(ua))os="Linux";
+ setText("deviceModel",model);setText("osVersion",os);setText("androidVersion",android);setText("browser",getBrowser(ua));
+ setText("cssScreen",screen.width+" × "+screen.height+" px");setText("viewport",innerWidth+" × "+innerHeight+" px");
+ const dpr=devicePixelRatio||1;setText("dpr",dpr.toFixed(2)+"×");setText("physicalPixels",Math.round(screen.width*dpr)+" × "+Math.round(screen.height*dpr)+" est.");
+ setText("cores",navigator.hardwareConcurrency?navigator.hardwareConcurrency+" reported":"Unavailable");setText("memory",navigator.deviceMemory?navigator.deviceMemory+" GB hint":"Unavailable");
+ const c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;setText("network",c&&c.effectiveType?c.effectiveType.toUpperCase():"Unavailable");setText("language",navigator.language||"Unknown");setText("touch",navigator.maxTouchPoints>0?"Supported":"Not reported");
 }
-async function generateSensitivity() {
-  const button = document.getElementById("generateButton");
-  const buttonText = document.getElementById("generateButtonText");
-  const animation = document.getElementById("generateAnimation");
-  const status = document.getElementById("generateStatus");
-  const progress = document.getElementById("generateProgress");
-  const percent = document.getElementById("generatePercent");
-  const results = document.getElementById("sensitivityResults");
-  const note = document.getElementById("sensitivityNote");
-
-  if (button.disabled) return;
-
-  const game = document.getElementById("game").value;
-  const style = document.getElementById("aimStyle").value;
-  const drag = document.getElementById("drag").value;
-
-  let values = game === "ffmax"
-  ? [185, 175, 165, 150, 85, 145]
-  : [190, 180, 170, 155, 90, 150];
-
-// Screen viewport width අනුව සුළු adjustment එකක්
-const viewportWidth = window.innerWidth || 393;
-const screenFactor = Math.max(
-  0.90,
-  Math.min(1.10, 393 / viewportWidth)
-);
-
-values = values.map((v, index) => {
-  // Scope values වලට screen adjustment එක අඩුවෙන් යොදන්න
-  const factor = index <= 1 ? screenFactor : 1 + (screenFactor - 1) * 0.5;
-  return Math.round(v * factor);
-});
-
-// Play style
-if (style === "rush") {
-  values[0] += 5;
-  values[1] += 5;
-  values[2] += 3;
-} else if (style === "range") {
-  values[0] -= 10;
-  values[1] -= 10;
-  values[2] -= 8;
-  values[3] -= 8;
-  values[4] -= 5;
+let measuredDragSpeed=null,dragStartX=0,dragStartTime=0,dragActive=false;
+const dragPad=document.getElementById("dragTestPad");
+dragPad.addEventListener("pointerdown",e=>{dragStartX=e.clientX;dragStartTime=performance.now();dragActive=true;try{dragPad.setPointerCapture(e.pointerId)}catch(_){}dragPad.textContent="Drag කරන්න..."});
+dragPad.addEventListener("pointerup",e=>{if(!dragActive)return;const distance=Math.abs(e.clientX-dragStartX),elapsed=performance.now()-dragStartTime;dragActive=false;if(elapsed<30||distance<15){setText("dragTestResult","තව ටිකක් දිගට drag කරලා නැවත test කරන්න.");return}measuredDragSpeed=Math.round(distance/(elapsed/1000));setText("dragTestResult","Measured drag speed: "+measuredDragSpeed+" CSS px/sec. මෙය browser drag speed එකක් පමණයි.");dragPad.textContent="Test complete ✓"});
+dragPad.addEventListener("pointercancel",()=>dragActive=false);
+dragPad.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setText("dragTestResult","Drag speed මැනීමට touch screen එකෙන් pad එක මත swipe කරන්න.")}});
+function resetDragTest(){measuredDragSpeed=null;dragActive=false;dragPad.textContent="මෙතැන ඇඟිල්ලෙන් වමට හෝ දකුණට drag කරන්න";setText("dragTestResult","Drag test කරලා speed එක මැනගන්න.")}
+async function generateSensitivity(){
+ const button=document.getElementById("generateButton"),buttonText=document.getElementById("generateButtonText"),animation=document.getElementById("generateAnimation"),status=document.getElementById("generateStatus"),progress=document.getElementById("generateProgress"),percent=document.getElementById("generatePercent"),results=document.getElementById("sensitivityResults"),note=document.getElementById("sensitivityNote");
+ if(button.disabled)return;
+ const game=document.getElementById("game").value,style=document.getElementById("aimStyle").value,drag=document.getElementById("drag").value;
+ let values=game==="ffmax"?[185,175,165,150,85,145]:[190,180,170,155,90,150];
+ const vw=innerWidth||393,factor=Math.max(.90,Math.min(1.10,393/vw));
+ values=values.map((v,i)=>Math.round(v*(i<=1?factor:1+(factor-1)*.5)));
+ if(style==="rush"){values[0]+=5;values[1]+=5;values[2]+=3}else if(style==="range"){values[0]-=10;values[1]-=10;values[2]-=8;values[3]-=8;values[4]-=5}
+ if(drag==="slow"){values[0]+=5;values[1]+=5}else if(drag==="fast"){values[0]-=8;values[1]-=8}
+ if(measuredDragSpeed!==null){if(measuredDragSpeed>900){values[0]-=3;values[1]-=3}else if(measuredDragSpeed<250){values[0]+=3;values[1]+=3}}
+ values=values.map(v=>Math.max(0,Math.min(200,v)));
+ let fireSize=50*(vw/393);if(style==="rush")fireSize+=4;else if(style==="range")fireSize-=3;if(measuredDragSpeed!==null&&measuredDragSpeed>900)fireSize+=2;fireSize=Math.round(Math.max(35,Math.min(70,fireSize)));
+ const ids=["general","redDot","scope2","scope4","sniper","freeLook"],cards=results.querySelectorAll(".result");
+ button.disabled=true;button.classList.add("loading");buttonText.textContent="GENERATING...";animation.classList.add("active");results.style.display="none";note.style.display="none";progress.style.width="0%";percent.textContent="0%";status.textContent="INITIALIZING GENERATOR...";
+ const stages=[{percent:20,text:"ANALYZING GAME PROFILE..."},{percent:45,text:"CALCULATING AIM SETTINGS..."},{percent:70,text:"OPTIMIZING SENSITIVITY..."},{percent:90,text:"PREPARING RESULTS..."},{percent:100,text:"GENERATION COMPLETE ✓"}],wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+ try{for(const s of stages){status.textContent=s.text;progress.style.width=s.percent+"%";percent.textContent=s.percent+"%";await wait(300)}
+ ids.forEach((id,i)=>setText(id,values[i]));setText("fireButtonSize",fireSize+"%");
+ setText("sensitivityNote","Suggested starting profile for "+(game==="ffmax"?"Free Fire MAX":"Free Fire")+". These values are not official or guaranteed. Your screen, control layout and personal drag movement can change the result.");
+ results.style.display="grid";note.style.display="block";cards.forEach(c=>c.classList.remove("show-result"));await new Promise(resolve=>requestAnimationFrame(resolve));cards.forEach((c,i)=>setTimeout(()=>c.classList.add("show-result"),i*100));await wait(350);animation.classList.remove("active");buttonText.textContent="✓ GENERATE AGAIN";
+ }catch(err){status.textContent="PLEASE TRY AGAIN"}finally{button.disabled=false;button.classList.remove("loading")}
 }
-
-// User-selected drag behaviour
-if (drag === "slow") {
-  values[0] += 5;
-  values[1] += 5;
-} else if (drag === "fast") {
-  values[0] -= 8;
-  values[1] -= 8;
+function calibrate(){
+ const results=document.getElementById("sensitivityResults");if(!results||results.style.display!=="grid"){alert("මුලින් Generate settings ඔබන්න.");return}
+ const feedback=document.getElementById("feedback").value;let general=Number(document.getElementById("general").textContent),redDot=Number(document.getElementById("redDot").textContent),note="";
+ if(feedback==="high"){general-=5;redDot-=5;note="Crosshair එක හිසට උඩින් යනවා නම් General සහ Red Dot ටිකක් අඩු කර නැවත test කරන්න."}
+ else if(feedback==="low"){general+=5;redDot+=5;note="Crosshair එක හිසට පහළින් නවතිනවා නම් General සහ Red Dot ටිකක් වැඩි කර නැවත test කරන්න."}
+ else if(feedback==="mixed"){general-=2;redDot-=2;note="Aim එක සමහර වෙලාවට ඉහළටත් පහළටත් යනවා නම් කුඩා වෙනසක් කර එකම drag movement එක නැවත test කරන්න."}
+ else note="Aim එක හොඳ නම් දැනට තියෙන sensitivity settings වෙනස් නොකර තබාගන්න.";
+ general=Math.max(0,Math.min(200,general));redDot=Math.max(0,Math.min(200,redDot));setText("calGeneral",general);setText("calRedDot",redDot);setText("calNote",note);document.getElementById("calibrationResult").style.display="block";
 }
-
-// Optional measured drag-speed adjustment
-if (measuredDragSpeed !== null) {
-  if (measuredDragSpeed > 900) {
-    values[0] -= 3;
-    values[1] -= 3;
-  } else if (measuredDragSpeed < 250) {
-    values[0] += 3;
-    values[1] += 3;
-  }
+let fpsRunning=false;
+function startFpsTest(){
+ if(fpsRunning)return;fpsRunning=true;const button=document.getElementById("fpsButton"),ball=document.getElementById("fpsBall"),output=document.getElementById("fpsValue"),stage=document.querySelector(".fps-stage");
+ button.disabled=true;button.textContent="Testing...";ball.style.display="block";const duration=3000,start=performance.now();let frames=0;
+ function frame(now){if(!fpsRunning)return;frames++;const elapsed=now-start,maxX=Math.max(0,stage.clientWidth-ball.offsetWidth),cycle=(elapsed/850)%2,x=cycle<1?maxX*cycle:maxX*(2-cycle);ball.style.transform="translateX("+x+"px)";
+ if(elapsed<duration)requestAnimationFrame(frame);else{output.textContent=Math.round(frames/(elapsed/1000));button.disabled=false;button.textContent="↻ Run again";ball.style.display="none";fpsRunning=false}}
+ output.textContent="...";requestAnimationFrame(frame)
 }
-
-values = values.map(v => Math.max(0, Math.min(200, v)));
-
-// Suggested Fire Button Size
-let fireSize = 50 * (viewportWidth / 393);
-
-if (style === "rush") {
-  fireSize += 4;
-} else if (style === "range") {
-  fireSize -= 3;
-}
-
-if (measuredDragSpeed !== null && measuredDragSpeed > 900) {
-  fireSize += 2;
-}
-
-fireSize = Math.round(Math.max(35, Math.min(70, fireSize)));
-  const ids = [
-    "general", "redDot", "scope2",
-    "scope4", "sniper", "freeLook"
-  ];
-
-  const cards = results.querySelectorAll(".result");
-
-  button.disabled = true;
-  button.classList.add("loading");
-  buttonText.textContent = "GENERATING...";
-  animation.classList.add("active");
-
-  results.style.display = "none";
-  note.style.display = "none";
-
-  progress.style.width = "0%";
-  percent.textContent = "0%";
-  status.textContent = "INITIALIZING GENERATOR...";
-
-  const stages = [
-    { percent: 20, text: "ANALYZING GAME PROFILE..." },
-    { percent: 45, text: "CALCULATING AIM SETTINGS..." },
-    { percent: 70, text: "OPTIMIZING SENSITIVITY..." },
-    { percent: 90, text: "PREPARING RESULTS..." },
-    { percent: 100, text: "GENERATION COMPLETE ✓" }
-  ];
-
-  const wait = ms =>
-    new Promise(resolve => setTimeout(resolve, ms));
-
-  try {
-    for (const stage of stages) {
-      status.textContent = stage.text;
-      progress.style.width = stage.percent + "%";
-      percent.textContent = stage.percent + "%";
-      await wait(300);
-    }
-
-    ids.forEach((id, index) => {
-      setText(id, values[index]);
-    });
-      setText("fireButtonSize", fireSize + "%");
-    setText(
-      
-      "sensitivityNote",
-      "Suggested starting profile for " +
-      (game === "ffmax" ? "Free Fire MAX" : "Free Fire") +
-      ". These values are not official or guaranteed. Your screen, control layout and personal drag movement can change the result."
-    );
-
-    results.style.display = "grid";
-    note.style.display = "block";
-
-    cards.forEach(card => card.classList.remove("show-result"));
-
-    // Let the browser apply the hidden state before starting the reveal.
-    await new Promise(resolve => requestAnimationFrame(() => resolve()));
-
-    cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add("show-result");
-      }, index * 140);
-    });
-
-    await wait(350);
-
-    animation.classList.remove("active");
-    buttonText.textContent = "✓ GENERATE AGAIN";
-  } catch (error) {
-    status.textContent = "PLEASE TRY AGAIN";
-  } finally {
-    button.disabled = false;
-    button.classList.remove("loading");
-  }
-}  
-  
-function calibrate() {
-  const results = document.getElementById("sensitivityResults");
-  
-  if (!results || results.style.display !== "grid") {
-    alert("මුලින් Generate settings ඔබන්න.");
-    return;
-  }
-  
-  const feedback = document.getElementById("feedback").value;
-  
-  let general = Number(document.getElementById("general").textContent);
-  let redDot = Number(document.getElementById("redDot").textContent);
-  let note = "";
-  
-  if (feedback === "high") {
-    general -= 5;
-    redDot -= 5;
-    note = "Crosshair එක හිසට උඩින් යනවා නම් General සහ Red Dot ටිකක් අඩු කර නැවත test කරන්න.";
-  } else if (feedback === "low") {
-    general += 5;
-    redDot += 5;
-    note = "Crosshair එක හිසට පහළින් නවතිනවා නම් General සහ Red Dot ටිකක් වැඩි කර නැවත test කරන්න.";
-  } else if (feedback === "mixed") {
-    general -= 2;
-    redDot -= 2;
-    note = "Aim එක සමහර වෙලාවට ඉහළටත් පහළටත් යනවා නම් කුඩා වෙනසක් කර එකම drag movement එක නැවත test කරන්න.";
-  } else {
-    note = "Aim එක හොඳ නම් දැනට තියෙන sensitivity settings වෙනස් නොකර තබාගන්න.";
-  }
-  
-  general = Math.max(0, Math.min(200, general));
-  redDot = Math.max(0, Math.min(200, redDot));
-  
-  document.getElementById("calGeneral").textContent = general;
-  document.getElementById("calRedDot").textContent = redDot;
-  document.getElementById("calNote").textContent = note;
-  
-  document.getElementById("calibrationResult").style.display = "block";
-}  
-  
-let fpsRunning = false;  
-  
-function startFpsTest() {  
-  if (fpsRunning) return;  
-  
-  fpsRunning = true;  
-  
-  const button = document.getElementById("fpsButton");  
-  const ball = document.getElementById("fpsBall");  
-  const output = document.getElementById("fpsValue");  
-  const stage = document.querySelector(".fps-stage");  
-  
-  button.disabled = true;  
-  button.textContent = "Testing...";  
-  ball.style.display = "block";  
-  
-  const duration = 3000;  
-  const start = performance.now();  
-  let frames = 0;  
-  let lastX = -30;  
-  
-  function frame(now) {  
-    if (!fpsRunning) return;  
-  
-    frames++;  
-  
-    const elapsed = now - start;  
-    const progress = Math.min(elapsed / duration, 1);  
-    const maxX = Math.max(0, stage.clientWidth - ball.offsetWidth);  
-    const cycle = (elapsed / 850) % 2;  
-  
-    lastX = cycle < 1  
-      ? maxX * cycle  
-      : maxX * (2 - cycle);  
-  
-    ball.style.transform = "translateX(" + lastX + "px)";  
-  
-    if (elapsed < duration) {  
-      requestAnimationFrame(frame);  
-    } else {  
-      const fps = Math.round(frames / (elapsed / 1000));  
-      output.textContent = fps;  
-      button.disabled = false;  
-      button.textContent = "↻ Run again";  
-      ball.style.display = "none";  
-      fpsRunning = false;  
-    }  
-  }  
-  
-  output.textContent = "...";  
-  requestAnimationFrame(frame);  
-}  
-  
-window.addEventListener("resize", detectDevice);  
-window.addEventListener("orientationchange", detectDevice);  
-  
-detectDevice();  
-
-function goToNextPage() {
+window.addEventListener("resize",detectDevice);window.addEventListener("orientationchange",detectDevice);detectDevice();
+function goToNextPage(){
   window.location.href = "next.html";
 }
-
-</script>  </body>  
+</script>
+</body>
 </html>

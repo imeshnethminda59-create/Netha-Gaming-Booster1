@@ -2,943 +2,1120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#070b12">
-  <meta name="mobile-web-app-capable" content="yes">
-  <title>NETHA BOOST | ULTRA CYBER DASHBOARD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070b12">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+<title>NETHA BOOST ULTRA | Headshot Lab</title>
 
-    html {
-      width: 100%;
-      min-height: 100%;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-      scroll-behavior: smooth;
-    }
+<style>
+:root {
+  --bg: #070b12;
+  --panel: rgba(16, 24, 38, .88);
+  --panel2: #101827;
+  --border: rgba(168, 85, 247, .25);
+  --red: #a855f7;
+  --pink: #35e7ff;
+  --lime: #55f7c7;
+  --text: #f3f6ff;
+  --muted: #91a0b7;
+  --shadow: 0 0 25px rgba(168, 85, 247, .12);
+}
 
-    body {
-      width: 100%;
-      min-height: 100vh;
-      padding: 12px;
-      background: #070b12;
-      color: #eafcff;
-      font-family: Arial, Helvetica, sans-serif;
-      background-image:
-        radial-gradient(ellipse at top, #10313b 0%, transparent 55%);
-      overflow-x: hidden;
-    }
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    button {
-      font-family: inherit;
-      touch-action: manipulation;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .container {
-      width: 100%;
-      max-width: 650px;
-      margin: 0 auto;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(ellipse at 85% 0%, rgba(168,85,247,.12), transparent 35%),
+    radial-gradient(ellipse at 10% 45%, rgba(53,231,255,.06), transparent 32%),
+    var(--bg);
+}
 
-    .header {
-      text-align: center;
-      padding: 25px 12px;
-      border: 1px solid #00f0ff55;
-      border-radius: 18px;
-      background: #0c1420;
-      box-shadow: 0 0 25px #00eaff12;
-      margin-bottom: 20px;
-      overflow-wrap: anywhere;
-    }
+button, input {
+  font: inherit;
+}
 
-    .logo {
-      font-size: clamp(28px, 7vw, 42px);
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #00f0ff;
-      text-shadow: 0 0 15px #00d9ff80;
-    }
+button {
+  cursor: pointer;
+}
 
-    .subtitle {
-      color: #8caab7;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-top: 8px;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .status {
-      display: inline-block;
-      margin-top: 15px;
-      color: #50ff9b;
-      font-size: 12px;
-      border: 1px solid #50ff9b66;
-      padding: 8px 12px;
-      border-radius: 20px;
-    }
+.app {
+  min-height: 100vh;
+}
 
-    .section-title {
-      font-size: 18px;
-      color: #00f0ff;
-      letter-spacing: 1.5px;
-      margin: 24px 0 12px;
-    }
+/* SIDEBAR */
 
-    .card {
-      background: #0c1420;
-      border: 1px solid #1b3545;
-      border-radius: 14px;
-      padding: 17px;
-      margin-bottom: 12px;
-      min-width: 0;
-    }
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 245px;
+  padding: 25px 17px;
+  background: rgba(8, 13, 23, .96);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
 
-    .card h3 {
-      font-size: 19px;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 8px 28px;
+}
 
-    .muted {
-      color: #8caab7;
-      font-size: 16px;
-      line-height: 1.7;
-      overflow-wrap: anywhere;
-    }
+.brand-logo {
+  width: 43px;
+  height: 43px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(135deg, #a855f7, #35e7ff);
+  box-shadow: 0 0 22px rgba(168,85,247,.3);
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
+.brand-name {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
-    .stat {
-      background: #080f18;
-      border: 1px solid #1b3545;
-      border-radius: 12px;
-      padding: 17px 10px;
-      text-align: center;
-      min-width: 0;
-    }
+.brand-sub {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 5px;
+  letter-spacing: 1.5px;
+}
 
-    .stat-label {
-      color: #8caab7;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
+.nav-label {
+  padding: 13px 12px 8px;
+  color: #697a95;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
 
-    .stat-value {
-      color: #50ffbd;
-      font-size: 19px;
-      font-weight: bold;
-      overflow-wrap: anywhere;
-    }
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0;
+  padding: 13px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #a9b5c9;
+  font-size: 13px;
+  transition: .2s;
+}
 
-    .btn {
-      display: block;
-      width: 100%;
-      min-height: 54px;
-      padding: 15px 12px;
-      margin-top: 12px;
-      border-radius: 10px;
-      border: 1px solid #00f0ff;
-      background: #0b2730;
-      color: #00f0ff;
-      font-weight: bold;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-      line-height: 1.4;
-      cursor: pointer;
-      transition: transform 0.15s, filter 0.15s;
-    }
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  border-color: var(--border);
+  background: linear-gradient(90deg, rgba(168,85,247,.15), rgba(53,231,255,.04));
+  box-shadow: inset 3px 0 var(--red);
+}
 
-    .btn:active {
-      transform: scale(0.98);
-      filter: brightness(1.2);
-    }
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 17px;
+}
 
-    .btn.green {
-      background: linear-gradient(110deg, #123d2c, #09251d);
-      color: #65ffad;
-      border-color: #50ff9b;
-      box-shadow: 0 0 15px #50ff9b16;
-    }
+.sidebar-bottom {
+  margin-top: auto;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
 
-    .btn.purple {
-      background: #21152e;
-      border-color: #b46aff;
-      color: #d8a5ff;
-    }
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 10px var(--lime);
+}
 
-    .btn.cyan {
-      background: linear-gradient(110deg, #073641, #09232c);
-    }
+.sidebar-bottom p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
 
-    .game-card {
-      border-color: #50ff9b77;
-      background: linear-gradient(145deg, #10261f, #0c1420 65%);
-      box-shadow: 0 0 22px #50ff9b0c;
-    }
+/* MAIN */
 
-    .game-title {
-      color: #65ffad;
-      font-size: 23px;
-      margin-bottom: 9px;
-    }
+.main {
+  margin-left: 245px;
+  padding: 26px 30px 45px;
+  max-width: 1600px;
+}
 
-    .game-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 28px;
+}
 
-    .details {
-      display: none;
-      margin-top: 13px;
-      padding: 14px;
-      border-radius: 8px;
-      background: #060c13;
-      border: 1px solid #1b3545;
-      color: #a9c1ce;
-      font-size: 15px;
-      line-height: 1.9;
-      overflow-wrap: anywhere;
-    }
+.breadcrumb {
+  color: var(--muted);
+  font-size: 12px;
+}
 
-    .details.show {
-      display: block;
-    }
+.breadcrumb span {
+  color: var(--pink);
+}
 
-    .footer {
-      text-align: center;
-      color: #78919d;
-      font-size: 13px;
-      line-height: 1.8;
-      padding: 22px 8px;
-    }
+.top-status {
+  padding: 9px 13px;
+  border: 1px solid rgba(85,247,199,.2);
+  border-radius: 20px;
+  background: rgba(85,247,199,.05);
+  color: var(--lime);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
 
-    @media (max-width: 360px) {
-      body {
-        padding: 8px;
-      }
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(168,85,247,.22), transparent 45%),
+    linear-gradient(130deg, rgba(18,27,44,.98), rgba(10,16,28,.98));
+  box-shadow: var(--shadow);
+}
 
-      .stats {
-        grid-template-columns: 1fr;
-      }
+.hero::after {
+  content: "✦";
+  position: absolute;
+  right: 35px;
+  top: 20px;
+  color: rgba(53,231,255,.12);
+  font-size: 150px;
+  line-height: 1;
+  pointer-events: none;
+}
 
-      .logo {
-        letter-spacing: 1px;
-      }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-      .subtitle {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-      }
+.hero h1 {
+  max-width: 700px;
+  margin: 17px 0 12px;
+  font-size: clamp(27px, 4vw, 43px);
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+}
 
-      .muted {
-        font-size: 15px;
-      }
+.gradient-text {
+  background: linear-gradient(90deg, #c084fc, #35e7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-      .btn {
-        font-size: 15px;
-      }
-    }
+.hero p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
 
-    @media (min-width: 700px) {
-      body {
-        padding: 20px;
-      }
-    }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 11px 17px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: rgba(168,85,247,.1);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
 
-      .btn {
-        transition: none;
-      }
-    }
-  
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168,85,247,.2);
+}
 
-/* COMPACT MOBILE LAYOUT */
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 14px;
+.btn.primary {
+  color: #07101b;
+  border: 0;
+  background: linear-gradient(100deg, #c084fc, #35e7ff);
+}
+
+.btn.cyan {
+  border-color: rgba(53,231,255,.3);
+  background: rgba(53,231,255,.08);
+}
+
+.btn.full {
+  width: 100%;
+}
+
+/* SECTION */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 15px;
+  margin: 30px 0 15px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -.3px;
+}
+
+.section-heading p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.section-tag {
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* CARDS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--panel);
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+  transition: border-color .2s, transform .2s;
+}
+
+.card:hover {
+  border-color: rgba(53,231,255,.38);
+  transform: translateY(-2px);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 15px;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 45px;
+  height: 45px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: rgba(168,85,247,.1);
+  font-size: 21px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.card-sub {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.steps {
+  display: grid;
+  gap: 11px;
+  margin: 17px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #c6d0e1;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.step-num {
+  display: grid;
+  place-items: center;
+  flex: 0 0 23px;
+  height: 23px;
+  border: 1px solid rgba(53,231,255,.25);
+  border-radius: 7px;
+  color: var(--pink);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.tip {
+  margin-top: 16px;
+  padding: 12px;
+  border-left: 3px solid var(--pink);
+  border-radius: 0 9px 9px 0;
+  background: rgba(53,231,255,.045);
+  color: #c3d5e7;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* SENSITIVITY */
+
+.setting {
+  margin: 20px 0;
+}
+
+.setting-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 11px;
+  font-size: 12px;
+}
+
+.setting-top label {
+  color: #dce5f5;
+  font-weight: 700;
+}
+
+.setting-value {
+  min-width: 43px;
+  padding: 5px 8px;
+  border: 1px solid rgba(53,231,255,.2);
+  border-radius: 7px;
+  background: rgba(53,231,255,.06);
+  color: var(--pink);
+  text-align: center;
+  font-weight: 900;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: #73829a;
+  font-size: 10px;
+}
+
+.notice {
+  padding: 13px;
+  margin-top: 15px;
+  border: 1px solid rgba(168,85,247,.2);
+  border-radius: 11px;
+  background: rgba(168,85,247,.06);
+  color: #c6cfe0;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* ROUTINE */
+
+.routine-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.routine-row:last-child {
+  border-bottom: 0;
+}
+
+.routine-row input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  accent-color: var(--red);
+}
+
+.routine-text {
+  flex: 1;
+  color: #dce5f5;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.routine-text small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.progress-track {
+  height: 7px;
+  margin: 15px 0 8px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #202a3b;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #a855f7, #35e7ff);
+  transition: width .25s;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* FOOTER + MOBILE */
+
+.footer {
+  padding: 25px 5px 0;
+  color: #718099;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 205px;
   }
 
-  body {
-    padding: 8px;
-    zoom: 1;
+  .main {
+    margin-left: 205px;
+    padding: 22px 18px 35px;
   }
 
-  .container {
-    width: 100%;
-    max-width: 100%;
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 17px 13px 95px;
+  }
+
+  .topbar {
+    margin-bottom: 18px;
   }
 
   .hero {
-    padding: 18px 12px;
-    margin-bottom: 14px;
-    border-radius: 16px;
+    padding: 22px 18px;
+    border-radius: 17px;
   }
 
-  .logo {
-    font-size: 27px;
-    letter-spacing: 1px;
+  .hero::after {
+    right: 10px;
+    top: 22px;
+    font-size: 90px;
   }
 
-  .subtitle {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+  .hero h1 {
+    font-size: 30px;
   }
 
-  .status {
-    font-size: 10px;
-    padding: 6px 9px;
-    margin-top: 12px;
-  }
-
-  .section {
-    margin-top: 12px;
-    padding: 13px;
-    border-radius: 15px;
+  .hero p {
+    font-size: 12px;
   }
 
   .section-heading {
-    gap: 8px;
-    margin-bottom: 13px;
-    font-size: 14px;
-  }
-
-  .heading-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    border-radius: 9px;
-  }
-
-  .heading-caption {
-    font-size: 9px;
-    letter-spacing: .5px;
-  }
-
-  .device-top {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .device-top h3 {
-    font-size: 15px;
-  }
-
-  .device-chip {
-    font-size: 9px;
-    padding: 6px;
-  }
-
-  .device-grid {
-    gap: 7px;
-  }
-
-  .device-item {
-    padding: 9px;
-    border-radius: 10px;
-  }
-
-  .device-label {
-    font-size: 9px;
-    gap: 4px;
-    letter-spacing: .3px;
-  }
-
-  .device-value {
-    font-size: 12px;
-    margin-top: 6px;
-  }
-
-  .device-note {
-    font-size: 9px;
-  }
-
-  .field {
-    margin-bottom: 11px;
-  }
-
-  .field label {
-    font-size: 11px;
-    margin-bottom: 6px;
-  }
-
-  select {
-    padding: 10px;
-    font-size: 13px;
-    border-radius: 9px;
-  }
-
-  .btn {
-    min-height: 40px;
-    padding: 10px;
-    font-size: 12px;
-    letter-spacing: 0;
-    border-radius: 9px;
-  }
-
-  .result-grid {
-    gap: 7px;
-    margin-top: 11px;
-  }
-
-  .result {
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .result small {
-    font-size: 9px;
-  }
-
-  .result strong {
-    font-size: 19px;
-    margin-top: 5px;
-  }
-
-  .note {
-    margin-top: 10px;
-    padding: 9px;
-    font-size: 10px;
-    line-height: 1.6;
-  }
-
-  #generateAnimation {
-    padding: 12px;
-    margin-top: 11px;
-  }
-
-  .generate-status,
-  .generate-percent {
-    font-size: 10px;
-  }
-
-  .calibration-result {
-    padding: 10px;
-    font-size: 11px;
-  }
-
-  .fps-number {
-    font-size: 36px;
-    margin: 8px 0;
-  }
-
-  .fps-stage {
-    height: 75px;
-    margin: 10px 0;
-  }
-
-  .fps-ball {
-    top: 25px;
-  }
-
-  .footer {
-    font-size: 9px;
-    margin-top: 16px;
-  }
-}  
-/* NETHA BOOST - MATCH COMPACT HOME PAGE SIZE */
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    padding: 8px;
-    zoom: 1;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .header {
-    padding: 18px 12px;
-    margin-bottom: 14px;
-    border-radius: 16px;
-  }
-
-  .logo {
-    font-size: 27px;
-    letter-spacing: 1px;
-  }
-
-  .subtitle {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    margin-top: 7px;
-  }
-
-  .status {
-    font-size: 10px;
-    padding: 6px 9px;
-    margin-top: 12px;
-  }
-
-  .section-title {
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin: 16px 0 10px;
+    margin-top: 25px;
   }
 
   .card {
-    padding: 13px;
-    margin-bottom: 10px;
-    border-radius: 12px;
+    padding: 17px;
   }
 
-  .card h3 {
-    font-size: 14px;
-    line-height: 1.4;
-    margin-bottom: 7px;
+  .mobile-nav {
+    position: fixed;
+    z-index: 30;
+    left: 10px;
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 8px;
+    border: 1px solid rgba(168,85,247,.3);
+    border-radius: 17px;
+    background: rgba(8,13,23,.95);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 25px rgba(0,0,0,.4);
   }
 
-  .muted {
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .stat {
-    padding: 11px 7px;
+  .mobile-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 48px;
     border-radius: 10px;
+    color: #91a0b7;
+    font-size: 9px;
+    font-weight: 800;
   }
 
-  .stat-label {
-    font-size: 10px;
-    margin-bottom: 7px;
+  .mobile-link span {
+    font-size: 18px;
   }
 
-  .stat-value {
-    font-size: 13px;
-    overflow-wrap: anywhere;
-  }
-
-  .btn {
-    width: 100%;
-    min-height: 40px;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 9px;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: 1.4;
-  }
-
-  .game-title {
-    font-size: 19px;
-    margin-bottom: 8px;
-  }
-
-  .game-icon {
-    font-size: 30px;
-    margin-bottom: 9px;
-  }
-
-  .details {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 11px;
-    line-height: 1.7;
-    border-radius: 7px;
-  }
-
-  .footer {
-    font-size: 10px;
-    line-height: 1.7;
-    padding: 16px 6px;
+  .mobile-link.active {
+    color: var(--pink);
+    background: rgba(168,85,247,.12);
   }
 }
-/* NETHA BOOST ULTRA - Bottom to Top Color Flow */
-
-body {
-  position: relative;
-  isolation: isolate;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-
-  background: linear-gradient(
-    to top,
-    rgba(255, 0, 35, 0.24) 0%,
-    rgba(255, 0, 35, 0.16) 25%,
-    rgba(255, 0, 35, 0.08) 50%,
-    rgba(255, 0, 35, 0.02) 75%,
-    transparent 100%
-  );
-
-  background-size: 100% 300%;
-  background-position: 50% 100%;
-
-  animation: nethaRedFlow 8s ease-in-out infinite alternate;
-}
-
-@keyframes nethaRedFlow {
-  0% {
-    background-position: 50% 100%;
-    opacity: 0.15;
-  }
-
-  100% {
-    background-position: 50% 0%;
-    opacity: 1;
-  }
-}
-  </style>
+</style>
 </head>
 
 <body>
-  <main class="container">
+<div class="app">
 
-    <header class="header">
-      <div class="logo">NETHA BOOST</div>
-      <div class="subtitle">ULTRA CYBER DASHBOARD</div>
-      <div class="status" id="statusText">
-        ● DASHBOARD READY
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">N</div>
+      <div>
+        <div class="brand-name">NETHA BOOST</div>
+        <div class="brand-sub">ULTRA GAMING LAB</div>
+      </div>
+    </div>
+
+    <div class="nav-label">MAIN MENU</div>
+
+    <a class="nav-link" href="index.html">
+      <span class="nav-icon">⌂</span>
+      Dashboard
+    </a>
+
+    <a class="nav-link active" href="#headshot">
+      <span class="nav-icon">🎯</span>
+      Headshot Lab
+    </a>
+
+    <a class="nav-link" href="#sensitivity">
+      <span class="nav-icon">⚙️</span>
+      Sensitivity Helper
+    </a>
+
+    <a class="nav-link" href="#practice">
+      <span class="nav-icon">🎮</span>
+      Practice Routine
+    </a>
+
+    <div class="nav-label">QUICK ACCESS</div>
+
+    <a class="nav-link" href="#drag-guide">
+      <span class="nav-icon">↗</span>
+      Drag Guide
+    </a>
+
+    <div class="sidebar-bottom">
+      <div style="font-size:12px;font-weight:800;">
+        <span class="status-dot"></span> SYSTEM READY
+      </div>
+      <p>Training tools are ready. Practice and adjust settings at your own pace.</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="breadcrumb">
+        NETHA BOOST / <span>HEADSHOT LAB</span>
+      </div>
+      <div class="top-status">
+        <span class="status-dot"></span> TRAINING MODE
       </div>
     </header>
 
-    <h2 class="section-title">▸ GAMING STATUS</h2>
+    <!-- HERO -->
+    <section class="hero" id="headshot">
+      <div class="eyebrow">✦ NETHA BOOST ULTRA</div>
 
-    <section class="stats">
+<h1>
+  HEADSHOT <span class="gradient-text">TRAINING LAB</span>
+</h1>
 
-  <div class="card stat-card">
-    <div class="stat-icon">📶</div>
-    <div class="stat-label">PING STATUS</div>
-    <div class="stat-value" id="pingValue">-- ms</div>
-    <div class="muted" id="pingStatus">Checking...</div>
-  </div>
+<p>
+  Free Fire ක්‍රීඩාවේ Aim එක පාලනය කරගන්න,
+  Drag Headshot පුහුණු වෙන්න සහ ඔයාට ගැළපෙන
+  Sensitivity අගයන් සොයාගන්න මේ Guide එක භාවිතා කරන්න.
+</p>
 
-  
-  <div class="card stat-card">
-  <div class="stat-icon">🌡️</div>
-  <div class="stat-label">PHONE TEMP</div>
-  <div class="stat-value" id="tempValue">Unavailable</div>
-  <div class="muted" id="tempStatus">
-    Android temperature access required
-  </div>
-</div>
-
-  <div class="card stat-card">
-  <div class="stat-icon">🎮</div>
-  <div class="stat-label">CURRENT FPS</div>
-  <div class="stat-value" id="fpsValue">Calculating...</div>
-  <div class="muted" id="fpsStatus">Browser frame rate</div>
-</div>
-
-  <div class="card stat-card">
-    <div class="stat-icon">📡</div>
-    <div class="stat-label">SIM / NETWORK</div>
-    <div class="stat-value" id="simValue">Unknown</div>
-    <div class="muted">Network information</div>
-  </div>
-
-</section>
-  
+      <div class="hero-actions">
+        <a class="btn primary" href="#drag-guide">🎯 START TRAINING</a>
+        <a class="btn cyan" href="index.html">← BACK TO HOME</a>
+      </div>
     </section>
 
-    <h2 class="section-title">▸ QUICK TOOLS</h2>
+    <!-- DRAG GUIDE -->
+    <div class="section-heading" id="drag-guide">
+      <div>
+        <h2>Headshot Training Guide</h2>
+        <p>Simple techniques to practise in the training ground.</p>
+      </div>
+      <span class="section-tag">01 / GUIDE</span>
+    </div>
 
-    <section class="card">
-      <h3>📱 Device Information</h3>
-      <p class="muted">
-        View information shared by your browser.
-      </p>
+    <section class="grid">
 
-      <button class="btn cyan"
-        onclick="toggleDetails('deviceDetails', this)">
-        SHOW DETAILS
-      </button>
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon">🎯</div>
+          <div>
+          <h3>Drag Headshot කරන විදිහ</h3>
+<div class="card-sub">හෙඩ්ෂොට් පුහුණුව</div>
+          </div>
+        </div>
 
-      <div class="details" id="deviceDetails">
-  උපාංග තොරතුරු පූරණය වෙමින් පවත..</div>
+        <p>
+          <p>
+  Aim එක උඩු ශරීරය ආසන්නයේ තබාගෙන,
+  Fire කරන අතරතුර ඇඟිල්ල මෘදු ලෙස ඉහළට
+  ඇදීමෙන් Headshot Aim එක පුහුණු කරන්න.
+</p>
+
+        <ol class="steps">
+  <li><span class="step-num">01</span><span>Aim එක සතුරාගේ උඩු ශරීරය ආසන්නයට තබාගන්න.</span></li>
+  <li><span class="step-num">02</span><span>Fire කරන අතරතුර ඇඟිල්ල මෘදු ලෙස ඉහළට අදින්න.</span></li>
+  <li><span class="step-num">03</span><span>විශාල චලනයන් වෙනුවට කෙටි Drag චලනයන් පුහුණු කරන්න.</span></li>
+  <li><span class="step-num">04</span><span>Training Ground එකේ නැවත නැවත පුහුණු වෙන්න.</span></li>
+</ol>
+
+        <div class="tip">
+          💡 Tip: If your aim goes above the target, try a smaller drag.
+          If it stays too low, adjust the movement gradually.
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon">🕹️</div>
+          <div>
+            <h3>Crosshair Control</h3>
+            <div class="card-sub">AIMING FUNDAMENTALS</div>
+          </div>
+        </div>
+
+        <p>
+          Good crosshair placement can make aiming easier before you
+          even start firing.
+        </p>
+
+        <ol class="steps">
+          <li><span class="step-num">01</span><span>Keep your crosshair near the expected target height.</span></li>
+          <li><span class="step-num">02</span><span>Move around while keeping control of your aim.</span></li>
+          <li><span class="step-num">03</span><span>Practise with one weapon at a time.</span></li>
+          <li><span class="step-num">04</span><span>Focus on consistency rather than speed at first.</span></li>
+        </ol>
+
+        <div class="tip">
+          ⚡ Tip: Test your technique in the training ground before
+          using it in regular matches.
+        </div>
+      </article>
+
     </section>
 
-    <section class="card">
-      <h3>🎯 Sensitivity Guide</h3>
-      <p class="muted">
-        General tips for adjusting your in-game controls.
-      </p>
+    <!-- SENSITIVITY -->
+    <div class="section-heading" id="sensitivity">
+      <div>
+        <h2>Sensitivity Helper</h2>
+        <p>Explore example values and note what feels comfortable.</p>
+      </div>
+      <span class="section-tag">02 / SETTINGS</span>
+    </div>
 
-      <button class="btn purple"
-        onclick="toggleDetails('aimDetails', this)">
-        OPEN GUIDE
-      </button>
+    <section class="grid">
 
-      <div class="details" id="aimDetails">
-  🎯 සංවේදීතාව (Sensitivity) සකස් කිරීම<br><br>
-  • Sensitivity අගයන් ටිකෙන් ටික වෙනස් කරන්න.<br>
-  • Training Ground එකේදී පරීක්ෂා කරන්න.<br>
-  • එකවර එක Setting එකක් පමණක් වෙනස් කරන්න.<br>
-  • ඔබට පහසු Control Settings තෝරගන්න.<br>
-  • හොඳම අගයන් ඔබේ උපාංගය සහ ක්‍රීඩා විලාසය අනුව වෙනස් විය හැකියි.
-</div>
-    </section>
+      
+<article class="card" id="calibrationLab">
+  <div class="card-head">
+    <div class="card-icon">🎯</div>
+    <div>
+      <h3>Headshot Calibration Lab</h3>
+      <div class="card-sub">හෙඩ්ෂොට් AIM පරීක්ෂාව</div>
+    </div>
+  </div>
 
-    <section class="card">
-      <h3>⚡ Performance Tips</h3>
-      <p class="muted">
-        Simple ways to help your phone run games smoothly.
-      </p>
-
-      <button class="btn cyan"
-        onclick="toggleDetails('performanceDetails', this)">
-        VIEW TIPS
-      </button>
-
-      <div class="details" id="performanceDetails">
-  ⚡ ක්‍රීඩාවේ කාර්යසාධනය වැඩි කරගැනීම සඳහා උපදෙස්<br><br>
-  • අවශ්‍ය නොවන Background Apps වසා දමන්න.<br>
-  • දුරකථනයේ ප්‍රමාණවත් Storage ඉඩක් තබාගන්න.<br>
-  • දුරකථනය අධික ලෙස රත් වූ විට ක්‍රීඩා කිරීමෙන් වළකින්න.<br>
-  • දුරකථනයට ගැළපෙන Graphics Settings භාවිත කරන්න.<br>
-  • ස්ථාවර අන්තර්ජාල සම්බන්ධතාවයක් භාවිත කරන්න.<br><br>
-  ⚠️ සටහන: මේ Dashboard එකෙන් පමණක් දුරකථනයේ FPS
-  කෙළින්ම වැඩි කිරීමක් හෝ Game Files වෙනස් කිරීමක් සිදු නොවේ.
-</div>
- <!-- GAME LAUNCHER -->
-<h2 class="section-title">▸ GAME LAUNCHER</h2>
-
-<section class="card game-card">
-  <div class="game-icon">🎮</div>
-
-  <h3 class="game-title">FREE FIRE</h3>
-
-  <p class="muted">
-    Tap below to open Free Fire on your Android phone.
+  <p>
+    ඔයාගේ Aim එක පුහුණු වෙද්දී සිදුවන දේ තෝරන්න.
+    ඒ අනුව ඊළඟට උත්සාහ කරන්න පුළුවන් ක්‍රමයක් පෙන්වන්නම්.
   </p>
 
-  <button class="btn green" onclick="openFreeFire()">
-    🎮 OPEN FREE FIRE
-  </button>
+  <div class="setting">
+    <div class="setting-top">
+      <label for="aimProblem">ඔයාගේ Aim එක කොහොමද?</label>
+    </div>
 
-  <p class="muted" style="margin-top: 12px;">
-        If the game does not open, make sure it is installed
-        and try opening it from your app list.
-      </p>
-</section>
+    <select id="aimProblem"
+      style="width:100%;padding:13px;border-radius:10px;
+      border:1px solid rgba(168,85,247,.3);
+      background:#101827;color:#f3f6ff;outline:none;">
+
+      <option value="high">Aim එක හිසටත් උඩින් යනවා</option>
+      <option value="low">Aim එක හිසට පහළින් නවතිනවා</option>
+      <option value="slow">Aim එක ඉහළට ගෙනියන්න අමාරුයි</option>
+      <option value="inconsistent">සමහර වෙලාවට හරි, සමහර වෙලාවට වැරදියි</option>
+    </select>
+  </div>
+
+  <div class="setting">
+    <div class="setting-top">
+      <label for="dragLevel">Drag එකේ ප්‍රමාණය</label>
+    </div>
+
+    <select id="dragLevel"
+      style="width:100%;padding:13px;border-radius:10px;
+      border:1px solid rgba(168,85,247,.3);
+      background:#101827;color:#f3f6ff;outline:none;">
+
+      <option value="short">කෙටි Drag එකක්</option>
+      <option value="medium" selected>මධ්‍යම Drag එකක්</option>
+      <option value="long">දිගු Drag එකක්</option>
+    </select>
+  </div>
+
+  <button class="btn primary full" type="button"
+  onclick="calibrateAim()">
+  ✦ මගේ Aim එක පරීක්ෂා කරන්න
+</button>
+
+  <div id="calibrationResult" class="notice" aria-live="polite">
+    💜 ඔයාගේ Aim එකට ගැළපෙන පුහුණු උපදෙස් ලබාගන්න
+    ඉහළ විකල්ප තෝරා Button එක ඔබන්න.
+  </div>
+</article>
+
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon">📱</div>
+          <div>
+            <h3>ඔයාට ගැළපෙන Settings හොයාගන්න</h3>
+<div class="card-sub">PHONE සහ AIM පරීක්ෂාව</div>
+          </div>
+        </div>
+
+        <div class="routine-row">
+          <span class="step-num">01</span>
+          <div class="routine-text">
+            Test your current settings first
+            <small>Use a familiar weapon in the training ground.</small>
+          </div>
+        </div>
+
+        <div class="routine-row">
+          <span class="step-num">02</span>
+          <div class="routine-text">
+            Change one value at a time
+            <small>This helps you identify what actually feels better.</small>
+          </div>
+        </div>
+
+        <div class="routine-row">
+          <span class="step-num">03</span>
+          <div class="routine-text">
+            Check aim movement
+            <small>Notice whether your crosshair moves too far or too little.</small>
+          </div>
+        </div>
+
+        <div class="routine-row">
+          <span class="step-num">04</span>
+          <div class="routine-text">
+            Keep a comfortable setup
+            <small>හැම Phone එකකටම එකම Settings ගැළපෙන්නේ නැහැ.</small>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong style="color:var(--pink);">DEVICE NOTE</strong><br>
+          Touch response, screen size, frame rate and personal control
+          style can all affect aiming. These example values are not
+          guaranteed headshot settings.
+        </div>
+      </article>
+
     </section>
 
-    <h2 class="section-title">▸ NAVIGATION</h2>
+    <!-- PRACTICE ROUTINE -->
+    <div class="section-heading" id="practice">
+      <div>
+        <h2>දිනපතා පුහුණු වීම</h2>
+<p>එක් එක් පුහුණු පියවර අවසන් කළ පසු Tick කරන්න.</p>
+      </div>
+      <span class="section-tag">03 / PRACTICE</span>
+    </div>
 
-    <button class="btn cyan" onclick="goHome()">
-      ← BACK TO HOME
-    </button>
+    <section class="grid">
 
-    <button class="btn" onclick="refreshInfo()">
-      ↻ REFRESH INFO
-    </button>
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon">🔥</div>
+          <div>
+            <h3>Training Checklist</h3>
+            <div class="card-sub">YOUR PRACTICE PROGRESS</div>
+          </div>
+        </div>
+
+        <label class="routine-row">
+          <input type="checkbox" class="practice-check">
+          <span class="routine-text">
+            Warm up your aim
+            <small>Practise calmly before trying faster movements.</small>
+          </span>
+        </label>
+
+        <label class="routine-row">
+          <input type="checkbox" class="practice-check">
+          <span class="routine-text">
+            Practise short upward drags
+            <small>Focus on control and repeatable movement.</small>
+          </span>
+        </label>
+
+        <label class="routine-row">
+          <input type="checkbox" class="practice-check">
+          <span class="routine-text">
+            Test your sensitivity
+            <small>Change only one setting when testing.</small>
+          </span>
+        </label>
+
+        <label class="routine-row">
+          <input type="checkbox" class="practice-check">
+          <span class="routine-text">
+            Review your aim consistency
+            <small>Notice which movements feel comfortable.</small>
+          </span>
+        </label>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="progress-info">
+          <span id="progressText">0 of 4 tasks completed</span>
+          <span id="progressPercent">0%</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon">🏆</div>
+          <div>
+            <h3>පුහුණු වීමේ උපදෙස්</h3>
+<div class="card-sub">හොඳ පුරුදු ඇති කරගන්න</div>
+          </div>
+        </div>
+
+        <ol class="steps">
+  <li>
+    <span class="step-num">✦</span>
+    <span>තරග ක්‍රීඩා කරන්න කලින් ටික වෙලාවක් Aim එක පුහුණු වෙලා අත හුරු කරගන්න.</span>
+  </li>
+  
+  <li>
+    <span class="step-num">✦</span>
+    <span>ක්‍රීඩා කරන අතරතුර Phone එක සහ ඇඟිලි පහසු විදියට තියාගෙන සෙල්ලම් කරන්න.</span>
+  </li>
+  
+  <li>
+    <span class="step-num">✦</span>
+    <span>එක Shot එකක් වැරදුණු පමණින් හැම Settings එකක්ම වෙනස් කරන්න එපා.</span>
+  </li>
+  
+  <li>
+    <span class="step-num">✦</span>
+    <span>ඇස්වලට හෝ අත්වලට මහන්සි දැනෙනවා නම් ටික වෙලාවක් විවේක ගන්න.</span>
+  </li>
+</ol>
+
+        <div class="tip">
+          💜 Remember: practice improves familiarity, but headshots
+          depend on aim, timing, weapon behaviour and in-game conditions.
+        </div>
+
+        <a href="index.html" class="btn cyan full" style="margin-top:17px;">
+          ← BACK TO NETHA BOOST
+        </a>
+      </article>
+
+    </section>
 
     <footer class="footer">
-      NETHA BOOST ULTRA<br>
-      CYBER GAMING DASHBOARD<br>
-      Local browser tools · No root required
+      NETHA BOOST ULTRA • HEADSHOT TRAINING LAB<br>
+      Training guide only. No game settings are changed by this webpage.
     </footer>
 
   </main>
 
-  <script>
-    function getBrowserName() {
-      const ua = navigator.userAgent || "";
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-link">
+      <span>⌂</span>
+      HOME
+    </a>
 
-      if (/EdgA?\//i.test(ua)) return "Edge";
-      if (/OPR\//i.test(ua)) return "Opera";
-      if (/SamsungBrowser/i.test(ua)) return "Samsung";
-      if (/Firefox\//i.test(ua)) return "Firefox";
-      if (/Chrome\//i.test(ua)) return "Chrome";
-      if (/Safari\//i.test(ua)) return "Safari";
+    <a href="#headshot" class="mobile-link active">
+      <span>🎯</span>
+      HEADSHOT
+    </a>
 
-      return "Unknown";
-    }
+    <a href="#sensitivity" class="mobile-link">
+      <span>⚙️</span>
+      SETTINGS
+    </a>
+  </nav>
 
-    function refreshInfo() {
-      document.getElementById("browserValue").textContent =
-        getBrowserName();
+</div>
 
-      document.getElementById("screenValue").textContent =
-        window.innerWidth + " × " + window.innerHeight;
 
-      document.getElementById("cpuValue").textContent =
-        navigator.hardwareConcurrency
-          ? navigator.hardwareConcurrency + " threads"
-          : "Unavailable";
-
-      const platform =
-        navigator.userAgentData &&
-        navigator.userAgentData.platform
-          ? navigator.userAgentData.platform
-          : (navigator.platform || "Not shared");
-
-      const language = navigator.language || "Unknown";
-
-      const touch =
-        navigator.maxTouchPoints > 0
-          ? "Supported"
-          : "Not reported";
-
-      document.getElementById("deviceDetails").textContent =
-        "Platform: " + platform +
-        " | Language: " + language +
-        " | Touch: " + touch;
-
-      document.getElementById("statusText").textContent =
-        "● DASHBOARD READY";
-    }
-
-    function openFreeFire() {
-  window.location.href =
-    "intent://launch/#Intent;" +
-    "package=com.dts.freefireth;" +
-    "action=android.intent.action.MAIN;" +
-    "category=android.intent.category.LAUNCHER;" +
-    "end";
-}
-
-    function toggleDetails(id, button) {
-      const panel = document.getElementById(id);
-      const isOpen = panel.classList.toggle("show");
-
-      if (isOpen) {
-        button.textContent = "HIDE DETAILS";
-      } else if (id === "deviceDetails") {
-        button.textContent = "SHOW DETAILS";
-      } else if (id === "aimDetails") {
-        button.textContent = "OPEN GUIDE";
-      } else {
-        button.textContent = "VIEW TIPS";
-      }
-    }
-
-    function goHome() {
-      window.location.href = "index.html";
-    }
-
-    window.addEventListener("resize", refreshInfo);
-    refreshInfo();
-  </script>
 <script>
-async function updateGamingStatus() {
-  const pingValue = document.getElementById("pingValue");
-  const pingStatus = document.getElementById("pingStatus");
-  const simValue = document.getElementById("simValue");
+function calibrateAim() {
+  const problem = document.getElementById("aimProblem");
+  const drag = document.getElementById("dragLevel");
+  const result = document.getElementById("calibrationResult");
 
-  // Measure internet request latency (not Free Fire server ping)
-  try {
-    const start = performance.now();
-
-    await fetch(
-      "https://connectivitycheck.gstatic.com/generate_204?t=" +
-      Date.now(),
-      {
-        mode: "no-cors",
-        cache: "no-store"
-      }
-    );
-
-    const ms = Math.round(performance.now() - start);
-
-    pingValue.textContent = ms + " ms";
-    pingStatus.textContent =
-      ms < 80 ? "Good connection" :
-      ms < 150 ? "Average connection" :
-      "High latency";
-  } catch (error) {
-    pingValue.textContent = "N/A";
-    pingStatus.textContent = "Connection test unavailable";
+  if (!problem || !drag || !result) {
+    alert("Calibration Lab එකේ HTML කොටස පරීක්ෂා කරන්න.");
+    return;
   }
 
-  // Browser-reported network type, if supported
-  const connection =
-    navigator.connection ||
-    navigator.mozConnection ||
-    navigator.webkitConnection;
+  const advice = {
+    high: [
+      "🎯 Aim එක ඉහළට යනවා",
+      "ඇඟිල්ල ඉහළට ඇදගෙන යන දුර ටිකක් අඩු කරලා බලන්න."
+    ],
+    low: [
+      "🎯 Aim එක පහළින් නවතිනවා",
+      "ඇඟිල්ලේ ඉහළට යන චලනය ටිකක් වැඩි කරලා පුහුණු වෙන්න."
+    ],
+    slow: [
+      "⚡ Aim එක ඉහළට ගෙනියන්න අමාරුයි",
+      "ඇඟිල්ලේ චලනය පහසුද බලන්න. අවශ්‍ය නම් Sensitivity එක ටිකෙන් ටික සකස් කරලා පරීක්ෂා කරන්න."
+    ],
+    inconsistent: [
+      "📊 Aim එක ස්ථාවර නැහැ",
+      "එකම ආකාරයේ Drag චලනයක් නැවත නැවත පුහුණු කරන්න."
+    ]
+  };
 
-  if (connection && connection.effectiveType) {
-    simValue.textContent =
-      connection.effectiveType.toUpperCase();
-  } else {
-    simValue.textContent = "Unavailable";
-  }
+  const dragTips = {
+    short: "කෙටි Drag එකක් තෝරාගෙන තියෙනවා. Aim එක අනුව චලනය සකස් කරන්න.",
+    medium: "මධ්‍යම Drag එකක් තෝරාගෙන තියෙනවා. Aim එක ඉක්මවා යනවාද කියලා පරීක්ෂා කරන්න.",
+    long: "දිගු Drag එකක් තෝරාගෙන තියෙනවා. Aim එක ඉක්මවා යනවා නම් කෙටි Drag එකක් උත්සාහ කරන්න."
+  };
 
-  // Browsers cannot reliably read phone temperature or game FPS.
-  document.getElementById("tempValue").textContent = "N/A";
-  document.getElementById("tempStatus").textContent =
-    "Android app required";
+  const selected = advice[problem.value];
 
-  document.getElementById("fpsValue").textContent = "N/A";
+  result.replaceChildren();
+
+  const title = document.createElement("strong");
+  title.style.color = "#35e7ff";
+  title.textContent = selected[0];
+
+  const description = document.createElement("p");
+  description.textContent = selected[1];
+
+  const dragTip = document.createElement("p");
+  dragTip.textContent = dragTips[drag.value];
+
+  result.append(title, description, dragTip);
 }
-
-updateGamingStatus();
-setInterval(updateGamingStatus, 10000);
 </script>
-<script>
-(() => {
-  const fpsValue = document.getElementById("fpsValue");
-  const fpsStatus = document.getElementById("fpsStatus");
 
-  if (!fpsValue || !fpsStatus) return;
-
-  let frames = 0;
-  let startTime = 0;
-  let lastTime = 0;
-
-  function measureFPS(timestamp) {
-    if (!startTime) {
-      startTime = timestamp;
-      lastTime = timestamp;
-    }
-
-    frames++;
-
-    if (timestamp - startTime >= 1000) {
-      const fps = Math.round(
-        frames * 1000 / (timestamp - startTime)
-      );
-
-      fpsValue.textContent = fps + " FPS";
-      fpsStatus.textContent =
-        fps >= 50 ? "Smooth browser animation" :
-        fps >= 30 ? "Moderate browser animation" :
-        "Low browser animation rate";
-
-      frames = 0;
-      startTime = timestamp;
-    }
-
-    lastTime = timestamp;
-    requestAnimationFrame(measureFPS);
-  }
-
-  if ("requestAnimationFrame" in window) {
-    requestAnimationFrame(measureFPS);
-  } else {
-    fpsValue.textContent = "N/A";
-    fpsStatus.textContent = "Not supported";
-  }
-})();
-</script>
 </body>
 </html>
