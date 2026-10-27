@@ -1115,6 +1115,40 @@ function calibrateAim() {
 
   result.append(title, description, dragTip);
 }
+// TRAINING CHECKLIST PROGRESS
+document.addEventListener("DOMContentLoaded", function() {
+  const checks = document.querySelectorAll(".practice-check");
+  const progressFill = document.getElementById("progressFill");
+  const progressText = document.getElementById("progressText");
+  const progressPercent = document.getElementById("progressPercent");
+  
+  function updateProgress() {
+    const total = checks.length;
+    const completed = document.querySelectorAll(
+      ".practice-check:checked"
+    ).length;
+    
+    const percent = total === 0 ?
+      0 :
+      Math.round((completed / total) * 100);
+    
+    progressFill.style.width = percent + "%";
+    progressText.textContent =
+      completed + " of " + total + " tasks completed";
+    progressPercent.textContent = percent + "%";
+    
+    if (completed === total && total > 0) {
+      progressText.textContent =
+        completed + " of " + total + " tasks completed — All Complete! 🎉";
+    }
+  }
+  
+  checks.forEach(function(checkbox) {
+    checkbox.addEventListener("change", updateProgress);
+  });
+  
+  updateProgress();
+});
 </script>
 
 </body>
